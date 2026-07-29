@@ -67,7 +67,7 @@ export default function Navbar() {
 				</div>
 
 				<div
-					className={`fixed left-0 top-23.1 h-[calc(100dvh-5.75rem)] w-72 border-r border-border/60 bg-primary/60 transition-transform duration-300 ease-out sm:w-80 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
+					className={`fixed left-0 top-23.1 h-[calc(100dvh-5.75rem)] w-72 border-r border-border/60 bg-primary/80 transition-transform duration-300 ease-out sm:w-80 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
 				>
 					<nav className="flex h-full flex-col gap-1 overflow-y-auto px-6 py-6" aria-label="Navigation mobile">
 						<Link href="/" className="relative flex flex-col leading-none text-foreground items-center justify-center">
