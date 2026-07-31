@@ -125,7 +125,7 @@ export default function HeroSlider() {
                             <h1 className="text-5xl md:text-9xl font-title tracking-wide underline decoration-2 underline-offset-10">
                                 {currentSlide.title}
                             </h1>
-                            <p className="text-base md:text-xl font-text whitespace-pre-line text-background leading-relaxed">
+                            <p className="text-base font-text whitespace-pre-line text-background leading-relaxed">
                                 {currentSlide.description}
                             </p>
                         </motion.div>
@@ -150,13 +150,13 @@ export default function HeroSlider() {
                     </div>
 
                     {/* Indicators / Dots au centre bas */}
-                    <div className="absolute bottom-28 left-1/2 -translate-x-1/2 flex items-center gap-2.5">
+                    <div className="absolute sm:bottom-28 left-1/2 -translate-x-1/2 flex items-center gap-2.5">
                         {slides.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => setCurrentIndex(index)}
                                 aria-label={`Aller à la slide ${index + 1}`}
-                                className={`h-2.5 rounded-full transition-all duration-300 ${index === currentIndex
+                                className={`cursor-pointer h-2.5 rounded-full transition-all duration-300 ${index === currentIndex
                                     ? 'w-7 bg-[#D8B76E]'
                                     : 'w-2.5 bg-white/50 hover:bg-white/80'
                                     }`}

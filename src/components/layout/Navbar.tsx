@@ -18,7 +18,7 @@ export default function Navbar() {
 		<header className="sticky top-0 z-30 bg-primary shadow-[inset_0_-1px_0_0_var(--border)] backdrop-blur-md">
 			<div className="relative">
 				<div className="z-50 mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-4 sm:px-10 lg:px-12">
-					<nav className="justify-center items-center gap-8 flex" aria-label="Navigation principale">
+					<nav className="justify-center items-center gap-8 flex w-17" aria-label="Navigation principale">
 						<button
 							type="button"
 							className="cursor-pointer inline-flex items-center justify-center rounded-full border border-border bg-primary p-2 text-background transition-colors hover:opacity-90"
