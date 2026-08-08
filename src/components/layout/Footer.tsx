@@ -2,9 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 const usefulLinks = [
-	{ label: "Accueil", href: "/#accueil" },
-	{ label: "Namas'Thés", href: "/#namas-thes" },
-	{ label: "Contact", href: "/#contact" },
+	{ label: "Accueil", href: "/" },
+	{ label: "Contact", href: "/contact" },
 ];
 
 const legalLinks = [
@@ -81,7 +80,7 @@ export default function Footer() {
 					<h3 className="text-xl text-background">Suivez-nous !</h3>
 					<div className="mt-4 flex items-center gap-4 text-border">
 						<a
-							href="https://www.instagram.com/grp.myselfe/"
+							href="https://www.instagram.com/namas.thes/"
 							aria-label="Instagram"
 							target="_blank"
 							rel="noreferrer"
@@ -90,7 +89,7 @@ export default function Footer() {
 							<InstagramIcon />
 						</a>
 						<a
-							href="https://www.tiktok.com/@grp.myselfe"
+							href="https://www.tiktok.com/@namas.thes"
 							aria-label="TikTok"
 							target="_blank"
 							rel="noreferrer"

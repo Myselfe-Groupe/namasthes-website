@@ -43,7 +43,7 @@ const slides: Slide[] = [
     {
         id: 4,
         title: 'Snacking',
-        description: 'Nos créations artisanales du jour',
+        description: 'Lundi - samedi : 6h30 - 19h\nDimanche : 7h - 13h',
         link: '/snacking',
         buttonText: 'Découvrir',
         image: '/images/vitrine-contrast.jpeg',
@@ -51,7 +51,7 @@ const slides: Slide[] = [
     {
         id: 5,
         title: 'Chocolaterie',
-        description: 'Nos créations artisanales du jour',
+        description: 'Lundi - samedi : 6h30 - 19h\nDimanche : 7h - 13h',
         link: '/chocolaterie',
         buttonText: 'Découvrir',
         image: '/images/vitrine-contrast.jpeg',
@@ -59,7 +59,7 @@ const slides: Slide[] = [
     {
         id: 6,
         title: 'Salon de thé',
-        description: 'Nos créations artisanales du jour',
+        description: 'Lundi - samedi : 6h30 - 19h\nDimanche : 7h - 13h',
         link: '/salon-de-the',
         buttonText: 'Découvrir',
         image: '/images/vitrine-contrast.jpeg',
@@ -120,18 +120,19 @@ export default function HeroSlider() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-white space-y-3"
+                            className="text-white space-y-3 mb-6 md:mb-0"
                         >
                             <h1 className="text-5xl md:text-9xl font-title tracking-wide underline decoration-2 underline-offset-10">
                                 {currentSlide.title}
                             </h1>
-                            <p className="text-base font-text whitespace-pre-line text-background leading-relaxed">
+                            <p className="text-sm sm:text-base font-text whitespace-pre-line text-background leading-relaxed">
                                 {currentSlide.description}
                             </p>
                         </motion.div>
 
                         {/* Bouton d'action à droite */}
-                        <motion.div
+                        {/* A décommenter lors de l'ajout des liens vers les pages de chaque section */}
+                        {/* <motion.div
                             key={`btn-${currentSlide.id}`}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -146,7 +147,7 @@ export default function HeroSlider() {
                                     <span className="text-lg ml-2">→</span>
                                 </Button>
                             </Link>
-                        </motion.div>
+                        </motion.div> */}
                     </div>
 
                     {/* Indicators / Dots au centre bas */}
