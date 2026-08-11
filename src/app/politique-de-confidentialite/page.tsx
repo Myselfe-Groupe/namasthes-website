@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Namas'thés - Politique de confidentialité",
-	description: "Politique de confidentialité du site Namas'thés.",
+	title: "Politique de confidentialité",
+	description: "Découvrez la politique de confidentialité de Namas'thés, les données collectées et vos droits conformément au RGPD.",
+	alternates: {
+		canonical: "/politique-de-confidentialite"
+	}
 };
 
 const sections = [

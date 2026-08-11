@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Namas'thés - Mentions légales",
-	description: "Mentions légales du site Namas'thés.",
+	title: "Mentions légales",
+	description: "Consultez les mentions légales du site Namas'thés, éditeur du site et informations relatives à l'hébergement et aux droits d'utilisation.",
+	alternates: {
+		canonical: "/mentions-legales"
+	}
 };
 
 const sections = [

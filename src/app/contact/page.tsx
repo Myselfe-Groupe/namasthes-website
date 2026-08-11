@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
-    title: "MySelfe Groupe - Contact",
-    description: "Contactez-nous pour toute question ou demande d'information.",
+    title: "Contact",
+    description: "Contactez Namas'thés pour réserver, poser une question ou venir nous rendre visite à Saint-Viance.",
+    alternates: {
+        canonical: "/contact"
+    }
 };
 
 export default function ContactPage() {
