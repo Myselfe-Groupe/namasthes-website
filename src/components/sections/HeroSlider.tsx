@@ -38,7 +38,7 @@ const slides: Slide[] = [
         description: 'Lundi - samedi : 6h30 - 19h\nDimanche : 7h - 13h',
         link: '/patisserie',
         buttonText: 'Découvrir',
-        image: '/images/vitrine-contrast.jpeg',
+        image: '/images/patisserie.jpg',
     },
     {
         id: 4,
@@ -46,7 +46,7 @@ const slides: Slide[] = [
         description: 'Lundi - samedi : 6h30 - 19h\nDimanche : 7h - 13h',
         link: '/snacking',
         buttonText: 'Découvrir',
-        image: '/images/vitrine-contrast.jpeg',
+        image: '/images/snacking.jpg',
     },
     {
         id: 5,
@@ -54,7 +54,7 @@ const slides: Slide[] = [
         description: 'Lundi - samedi : 6h30 - 19h\nDimanche : 7h - 13h',
         link: '/chocolaterie',
         buttonText: 'Découvrir',
-        image: '/images/vitrine-contrast.jpeg',
+        image: '/images/chocolaterie.jpg',
     },
     {
         id: 6,
@@ -62,9 +62,8 @@ const slides: Slide[] = [
         description: 'Lundi - samedi : 6h30 - 19h\nDimanche : 7h - 13h',
         link: '/salon-de-the',
         buttonText: 'Découvrir',
-        image: '/images/vitrine-contrast.jpeg',
+        image: '/images/salon-de-the.jpg',
     },
-    // Ajoute tes autres slides ici...
 ];
 
 export default function HeroSlider() {
@@ -107,7 +106,7 @@ export default function HeroSlider() {
                             className="object-cover object-center"
                         />
                         {/* Dark Overlay pour assurer la lisibilité du texte */}
-                        <div className="absolute inset-0 bg-black/40" />
+                        <div className="absolute inset-0 bg-black/30" />
                     </motion.div>
                 </AnimatePresence>
 
