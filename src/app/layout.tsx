@@ -15,7 +15,7 @@ const great_Vibes = Great_Vibes({
   weight: "400"
 });
 
-const siteUrl = "https://myselfe-groupe.com";
+const siteUrl = "https://namasthes.myselfegroupe.com";
 const siteName = "Namas'thés";
 const siteDescription = "Namas'thés à Saint-Viance : boulangerie artisanale, pizzeria, pâtisserie, chocolat et salon de thé pour vos moments gourmands sur place ou à emporter.";
 

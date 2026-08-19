@@ -87,7 +87,7 @@ export default function PolitiqueConfidentialitePage() {
 						Politique de confidentialité
 					</h1>
 					<p className="mt-6 max-w-3xl text-base leading-8 text-background/85 sm:text-base">
-						La protection de vos données personnelles est une priorité pour Namas'thés. Les présentes règles de confidentialité décrivent quelles informations sont collectées sur le site <a href="https://myselfe-groupe.com" className="text-background hover:underline">myselfe-groupe.com</a>, comment elles sont traitées et quels sont vos droits, conformément au Règlement Général sur la Protection des Données (RGPD).
+						La protection de vos données personnelles est une priorité pour Namas'thés. Les présentes règles de confidentialité décrivent quelles informations sont collectées sur le site <a href="https://namasthes.myselfegroupe.com" className="text-background hover:underline">namasthes.myselfegroupe.com</a>, comment elles sont traitées et quels sont vos droits, conformément au Règlement Général sur la Protection des Données (RGPD).
 					</p>
 				</div>
 			</section>
