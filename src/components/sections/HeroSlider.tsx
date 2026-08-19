@@ -19,7 +19,7 @@ const slides: Slide[] = [
     {
         id: 1,
         title: 'Boulangerie',
-        description: 'Lundi - samedi : 6h30 - 19h\nDimanche : 7h - 13h',
+        description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/boulangerie',
         buttonText: 'Voir les produits',
         image: '/images/vitrine-contrast.jpeg',
@@ -27,7 +27,7 @@ const slides: Slide[] = [
     {
         id: 2,
         title: 'Pizzeria',
-        description: 'Lundi - Jeudi : 11h30 - 14h / 19h - 21h\nVendredi - Samedi : 11h30 - 14h / 19h - 21h30\nDimanche : 11h30 - 14h / 19h - 21h',
+        description: 'Lundi - Jeudi : 11:30 - 14:00 / 19:00 - 21:00\nVendredi - Samedi : 11:30 - 14:00 / 19:00 - 21:30\nDimanche : 11:30 - 13:00 / 19:00 - 21:00',
         link: '/pizzeria',
         buttonText: 'Découvrir',
         image: '/images/vitrine-contrast.jpeg',
@@ -35,7 +35,7 @@ const slides: Slide[] = [
     {
         id: 3,
         title: 'Pâtisserie',
-        description: 'Lundi - samedi : 6h30 - 19h\nDimanche : 7h - 13h',
+        description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/patisserie',
         buttonText: 'Découvrir',
         image: '/images/patisserie.jpg',
@@ -43,7 +43,7 @@ const slides: Slide[] = [
     {
         id: 4,
         title: 'Snacking',
-        description: 'Lundi - samedi : 6h30 - 19h\nDimanche : 7h - 13h',
+        description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/snacking',
         buttonText: 'Découvrir',
         image: '/images/snacking.jpg',
@@ -51,7 +51,7 @@ const slides: Slide[] = [
     {
         id: 5,
         title: 'Chocolaterie',
-        description: 'Lundi - samedi : 6h30 - 19h\nDimanche : 7h - 13h',
+        description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/chocolaterie',
         buttonText: 'Découvrir',
         image: '/images/chocolaterie.jpg',
@@ -59,7 +59,7 @@ const slides: Slide[] = [
     {
         id: 6,
         title: 'Salon de thé',
-        description: 'Lundi - samedi : 6h30 - 19h\nDimanche : 7h - 13h',
+        description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/salon-de-the',
         buttonText: 'Découvrir',
         image: '/images/salon-de-the.jpg',
@@ -121,7 +121,7 @@ export default function HeroSlider() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="text-white space-y-3 mb-6 md:mb-0"
                         >
-                            <h1 className="text-5xl md:text-9xl font-title tracking-wide underline decoration-2 underline-offset-10">
+                            <h1 className="text-5xl md:text-9xl font-title underline decoration-2 underline-offset-10">
                                 {currentSlide.title}
                             </h1>
                             <p className="text-sm sm:text-base font-text whitespace-pre-line text-background leading-relaxed">

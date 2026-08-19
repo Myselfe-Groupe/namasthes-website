@@ -17,14 +17,15 @@ export default function ContactPage() {
                 <div className="flex flex-col md:flex-row gap-3 mt-4 text-xs sm:text-sm text-secondary">
                     <div className="w-full flex flex-col gap-1 border border-secondary/20 p-4 rounded-lg bg-muted">
                         <h3 className="text-base md:text-lg font-bold">Boulangerie</h3>
-                        <p>Lun-Sam : 6h00 - 21h00</p>
-                        <p>Dim : 7h00 - 13h00 / 19h00 - 21h00</p>
+                        <p>Lun-Jeu : 06:00 - 21:00</p>
+                        <p>Ven-Sam : 06:00 - 21:30</p>
+                        <p>Dim : 07:00 - 13:00 / 19:00 - 21:00</p>
                     </div>
                     <div className="w-full flex flex-col gap-1 border border-secondary/20 p-4 rounded-lg bg-muted">
                         <h3 className="text-base md:text-lg font-bold">Pizzeria</h3>
-                        <p>Lun-Jeu : 11h30 - 14h00 / 19h00 - 21h00</p>
-                        <p>Ven-Sam : 11h30 - 14h00 / 19h00 - 21h30</p>
-                        <p>Dim : 11h30 - 13h00 / 19h00 - 21h00</p>
+                        <p>Lun-Jeu : 11:30 - 14:00 / 19:00 - 21:00</p>
+                        <p>Ven-Sam : 11:30 - 14:00 / 19:00 - 21:30</p>
+                        <p>Dim : 11:30 - 13:00 / 19:00 - 21:00</p>
                     </div>
                 </div>
             </div>
