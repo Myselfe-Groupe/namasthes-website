@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://myselfegroupe.com/sitemap.xml"
+    sitemap: "https://namasthes.myselfegroupe.com/sitemap.xml"
   };
 }
