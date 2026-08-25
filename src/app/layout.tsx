@@ -16,13 +16,16 @@ const great_Vibes = Great_Vibes({
 });
 
 const siteUrl = "https://namasthes.myselfegroupe.com";
-const siteName = "Namas'thés";
+// 1. Le nom pur de la marque pour Google Site Name
+const brandName = "Namas'thés"; 
+// 2. Le titre SEO complet pour la balise <title>
+const siteTitle = "Namas'thés | Boulangerie, Pizzeria & Salon de thé à Saint-Viance";
 const siteDescription = "Namas'thés à Saint-Viance : boulangerie artisanale, pizzeria, pâtisserie, chocolat et salon de thé pour vos moments gourmands sur place ou à emporter.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: siteName,
+    default: siteTitle,
     template: "%s | Namas'thés"
   },
   description: siteDescription,
@@ -34,21 +37,22 @@ export const metadata: Metadata = {
     "pâtisserie artisanale",
     "pain artisanat"
   ],
-  applicationName: siteName,
+  // Indique à Google le nom court exact du site
+  applicationName: brandName, 
   alternates: {
     canonical: "/"
   },
   openGraph: {
-    title: `${siteName} | Boulangerie, pizzeria et salon de thé à Saint-Viance`,
+    title: siteTitle,
     description: siteDescription,
     url: siteUrl,
-    siteName,
+    siteName: brandName, // Nom de la marque uniquement
     locale: "fr_FR",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteName} | Boulangerie, pizzeria et salon de thé à Saint-Viance`,
+    title: siteTitle,
     description: siteDescription
   },
   robots: {
@@ -77,10 +81,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const organizationJsonLd = {
+  // Schema obligatoirement requis par Google pour détecter le "Site Name"
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: brandName,
+    alternateName: ["Namas'Thés", "Namas'Thés Saint-Viance", "Namasthes"],
+    url: siteUrl
+  };
+
+  // Schema pour ton établissement local (Bakery)
+  const bakeryJsonLd = {
     "@context": "https://schema.org",
     "@type": "Bakery",
-    name: siteName,
+    name: brandName,
+    alternateName: ["Namas'Thés", "Namas'Thés Saint-Viance"],
     url: siteUrl,
     description: siteDescription,
     telephone: "+33555231016",
@@ -125,9 +140,16 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <AppShell>{children}</AppShell>
+        
+        {/* JSON-LD WebSite pour le Nom du site Google */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        {/* JSON-LD Bakery pour le Référencement Local */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(bakeryJsonLd) }}
         />
       </body>
     </html>
