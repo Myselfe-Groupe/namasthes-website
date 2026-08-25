@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
     return (
         <main className="bg-background text-foreground">
-            <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-10 lg:px-12">
+            <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:py-20 sm:px-10 lg:px-12">
                 <h2 className="text-5xl font-title text-secondary">Horaires</h2>
                 <div className="flex flex-col md:flex-row gap-3 mt-4 text-xs sm:text-sm text-secondary">
                     <div className="w-full flex flex-col gap-1 border border-secondary/20 p-4 rounded-lg bg-muted">
@@ -29,7 +29,7 @@ export default function ContactPage() {
                     </div>
                 </div>
             </div>
-            <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-10 lg:px-12">
+            <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:py-20 sm:px-10 lg:px-12">
                 <h2 className="text-5xl font-title text-secondary">Informations</h2>
                 <div className="w-full flex flex-col md:flex-row gap-3 mt-4 text-sm text-secondary">
                     <div className="w-full md:w-2/5 flex flex-col gap-3">
@@ -92,7 +92,7 @@ export default function ContactPage() {
                     </div>
                 </div>
             </div>
-            <div className="mx-auto w-full max-w-4xl px-6 py-20 sm:px-10 lg:px-12">
+            <div className="mx-auto w-full max-w-4xl px-6 py-10 sm:py-20 sm:px-10 lg:px-12">
                 <h2 className="text-5xl font-title text-secondary">Contact</h2>
                 <p className="mt-4 text-base sm:text-lg text-secondary">Entrons en contact — envoyez-nous un message.</p>
                 <div className="mt-6">

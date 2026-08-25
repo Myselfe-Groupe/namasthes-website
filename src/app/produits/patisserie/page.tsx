@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 export default function PatisseriePage() {
     return (
         <main className="bg-background text-foreground">
-            <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-10 lg:px-12">
+            <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:py-20 sm:px-10 lg:px-12">
                 <div className="relative flex flex-col gap-4 justify-center items-center">
-                    <h1 className="absolute top-18 text-4xl font-text uppercase text-secondary z-10">Pâtisserie</h1>
-                    <span className="font-title text-accent/70 text-9xl text-center drop-shadow-lg z-0">Pâtisserie</span>
-                    <span className="absolute top-28 w-full h-0.5 bg-secondary/70 z-10" />
+                    <h1 className="absolute top-10 sm:top-18 text-2xl sm:text-4xl font-text uppercase text-secondary z-10">Pâtisserie</h1>
+                    <span className="font-title text-accent/70 text-7xl sm:text-9xl text-center drop-shadow-lg z-0">Pâtisserie</span>
+                    <span className="absolute top-18 sm:top-28 w-full h-0.5 bg-secondary/70 z-10" />
                 </div>
                 <div className="h-full mt-12 flex flex-col sm:flex-row gap-8 items-center justify-center">
                     <Image
@@ -28,11 +28,11 @@ export default function PatisseriePage() {
                     />
                     <div className="gap-3 flex flex-col">
                         <h2 className="text-2xl font-text text-secondary uppercase">Une pâtisserie artisanale</h2>
-                        <p className="text-base leading-6 text-foreground/80">
+                        <p className="text-sm sm:text-base leading-6 text-foreground/80">
                             Bienvenue dans notre pâtisserie, où la passion du goût et le savoir-faire artisanal sont au cœur de tout ce que nous réalisons.
                             Nous proposons chaque jour des produits frais, faits maison, élaborés avec des ingrédients français soigneusement sélectionnés pour leur qualité.
                         </p>
-                        <p className="text-base leading-6 text-foreground/80">
+                        <p className="text-sm sm:text-base leading-6 text-foreground/80">
                             Attachés aux traditions de la pâtisserie française, nous aimons également apporter une touche de nouveauté et de créativité afin de vous faire découvrir de nouvelles saveurs.
                             Le savoir-faire, l’authenticité et la satisfaction de nos clients sont essentiels pour nous. Notre objectif est de vous offrir des produits gourmands, généreux et de qualité, à partager en toute occasion.
                         </p>

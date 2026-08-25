@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 export default function PizzeriaPage() {
     return (
         <main className="bg-background text-foreground">
-            <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-10 lg:px-12">
+            <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:py-20 sm:px-10 lg:px-12">
                 <div className="relative flex flex-col gap-4 justify-center items-center">
-                    <h1 className="absolute top-18 text-4xl font-text uppercase text-secondary z-10">Pizzeria</h1>
-                    <span className="font-title text-accent/70 text-9xl text-center drop-shadow-lg z-0">Pizzeria</span>
-                    <span className="absolute top-28 w-full h-0.5 bg-secondary/70 z-10" />
+                    <h1 className="absolute top-10 sm:top-18 text-2xl sm:text-4xl font-text uppercase text-secondary z-10">Pizzeria</h1>
+                    <span className="font-title text-accent/70 text-7xl sm:text-9xl text-center drop-shadow-lg z-0">Pizzeria</span>
+                    <span className="absolute top-18 sm:top-28 w-full h-0.5 bg-secondary/70 z-10" />
                 </div>
                 <div className="h-full mt-12 flex flex-col sm:flex-row gap-8 items-center justify-center">
                     <Image
@@ -34,11 +34,11 @@ export default function PizzeriaPage() {
                             <p>Dim : 11:30 - 13:00 / 19:00 - 21:00</p>
                             <p className="font-semibold mt-2">Commander : 05 55 23 10 16</p>
                         </div>
-                        <p className="text-base leading-6 text-foreground/80">
+                        <p className="text-sm sm:text-base leading-6 text-foreground/80">
                             Bienvenue dans notre pizzeria, un lieu pensé pour les amoureux de saveurs authentiques et de cuisine généreuse.
                             Nous sélectionnons avec soin des ingrédients frais et de qualité afin de créer des pizzas gourmandes, équilibrées et pleines de caractère.
                         </p>
-                        <p className="text-base leading-6 text-foreground/80">
+                        <p className="text-sm sm:text-base leading-6 text-foreground/80">
                             À travers notre carte, nous aimons mêler créativité, finesse et associations de goûts afin de proposer aussi bien des recettes incontournables que des créations originales qui éveillent la curiosité et le plaisir des papilles.
                         </p>
                     </div>
