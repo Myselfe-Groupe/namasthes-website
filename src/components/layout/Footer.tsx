@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const usefulLinks = [
-	{ label: "Accueil", href: "/" },
+	{ label: "Allergènes", href: "/allergènes/Allergènes.pdf" },
 	{ label: "Contact", href: "/contact" },
 ];
 
