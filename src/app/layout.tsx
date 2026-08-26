@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Quando, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import AppShell from "@/components/layout/AppShell";
+import { Analytics } from "@vercel/analytics/next"
 
 const quando = Quando({
   variable: "--font-quando",
@@ -140,6 +141,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <AppShell>{children}</AppShell>
+        <Analytics/>
         
         {/* JSON-LD WebSite pour le Nom du site Google */}
         <script

@@ -1,4 +1,3 @@
-import UmamiStatsCard from "@/components/admin/UmamiStatsCard";
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 
@@ -126,7 +125,7 @@ export default async function AdminPage() {
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-secondary">
             Mesure d'audience
           </p>
-          <UmamiStatsCard />
+          
         </article>
       </section>
     </div>
