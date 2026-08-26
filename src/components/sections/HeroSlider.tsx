@@ -20,7 +20,7 @@ const slides: Slide[] = [
         id: 1,
         title: 'Boulangerie',
         description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
-        link: '/boulangerie',
+        link: '/produits/boulangerie',
         buttonText: 'Voir les produits',
         image: '/images/vitrine-contrast.jpeg',
     },
@@ -28,7 +28,7 @@ const slides: Slide[] = [
         id: 2,
         title: 'Pizzeria',
         description: 'Lundi - Jeudi : 11:30 - 14:00 / 19:00 - 21:00\nVendredi - Samedi : 11:30 - 14:00 / 19:00 - 21:30\nDimanche : 11:30 - 13:00 / 19:00 - 21:00',
-        link: '/pizzeria',
+        link: '/produits/pizzeria',
         buttonText: 'Découvrir',
         image: '/images/vitrine-contrast.jpeg',
     },
@@ -36,7 +36,7 @@ const slides: Slide[] = [
         id: 3,
         title: 'Pâtisserie',
         description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
-        link: '/patisserie',
+        link: '/produits/patisserie',
         buttonText: 'Découvrir',
         image: '/images/patisserie.jpg',
     },
@@ -44,7 +44,7 @@ const slides: Slide[] = [
         id: 4,
         title: 'Snacking',
         description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
-        link: '/snacking',
+        link: '/produits/snacking',
         buttonText: 'Découvrir',
         image: '/images/snacking.jpg',
     },
@@ -52,7 +52,7 @@ const slides: Slide[] = [
         id: 5,
         title: 'Chocolaterie',
         description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
-        link: '/chocolaterie',
+        link: '/produits/chocolaterie',
         buttonText: 'Découvrir',
         image: '/images/chocolaterie.jpg',
     },
@@ -60,7 +60,7 @@ const slides: Slide[] = [
         id: 6,
         title: 'Salon de thé',
         description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
-        link: '/salon-de-the',
+        link: '/produits/salon-de-the',
         buttonText: 'Découvrir',
         image: '/images/salon-de-the.jpg',
     },
@@ -130,8 +130,7 @@ export default function HeroSlider() {
                         </motion.div>
 
                         {/* Bouton d'action à droite */}
-                        {/* A décommenter lors de l'ajout des liens vers les pages de chaque section */}
-                        {/* <motion.div
+                        <motion.div
                             key={`btn-${currentSlide.id}`}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -146,7 +145,7 @@ export default function HeroSlider() {
                                     <span className="text-lg ml-2">→</span>
                                 </Button>
                             </Link>
-                        </motion.div> */}
+                        </motion.div>
                     </div>
 
                     {/* Indicators / Dots au centre bas */}

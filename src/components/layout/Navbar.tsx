@@ -6,7 +6,6 @@ import Image from "next/image";
 
 // Structure des sous-catégories de produits
 const productCategories = [
-    { label: "Tous les produits", href: "/produits" },
     { label: "Boulangerie", href: "/produits/boulangerie" },
     { label: "Pâtisserie", href: "/produits/patisserie" },
 	{ label: "Pizzeria", href: "/produits/pizzeria" },
