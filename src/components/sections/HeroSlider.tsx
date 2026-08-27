@@ -19,9 +19,9 @@ const slides: Slide[] = [
     {
         id: 1,
         title: 'Boulangerie',
-        description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Lundi - Jeudi : 06:00 - 21:00\nVendredi - Samedi : 06:00 - 21:30\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/produits/boulangerie',
-        buttonText: 'Voir les produits',
+        buttonText: 'Découvrir',
         image: '/images/vitrine-contrast.jpeg',
     },
     {
@@ -35,7 +35,7 @@ const slides: Slide[] = [
     {
         id: 3,
         title: 'Pâtisserie',
-        description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Lundi - Jeudi : 06:00 - 21:00\nVendredi - Samedi : 06:00 - 21:30\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/produits/patisserie',
         buttonText: 'Découvrir',
         image: '/images/patisserie.jpg',
@@ -43,7 +43,7 @@ const slides: Slide[] = [
     {
         id: 4,
         title: 'Snacking',
-        description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Lundi - Jeudi : 06:00 - 21:00\nVendredi - Samedi : 06:00 - 21:30\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/produits/snacking',
         buttonText: 'Découvrir',
         image: '/images/snacking.jpg',
@@ -51,7 +51,7 @@ const slides: Slide[] = [
     {
         id: 5,
         title: 'Chocolaterie',
-        description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Lundi - Jeudi : 06:00 - 21:00\nVendredi - Samedi : 06:00 - 21:30\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/produits/chocolaterie',
         buttonText: 'Découvrir',
         image: '/images/chocolaterie.jpg',
@@ -59,7 +59,7 @@ const slides: Slide[] = [
     {
         id: 6,
         title: 'Salon de thé',
-        description: 'lundi - jeudi : 06:00 - 21:00\nvendredi - samedi : 06:00 - 21:30\ndimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Lundi - Jeudi : 06:00 - 21:00\nVendredi - Samedi : 06:00 - 21:30\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/produits/salon-de-the',
         buttonText: 'Découvrir',
         image: '/images/salon-de-the.jpg',
@@ -112,7 +112,7 @@ export default function HeroSlider() {
 
                 {/* Contenu superposé (Titre, Description, Bouton) */}
                 <div className="relative z-10 max-w-7xl mx-auto h-full px-6 md:px-12 flex flex-col justify-end pb-16 md:pb-40">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-6">
                         {/* Texte à gauche */}
                         <motion.div
                             key={`text-${currentSlide.id}`}
@@ -135,12 +135,13 @@ export default function HeroSlider() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.3 }}
+                            className="flex justify-center md:justify-end"
                         >
                             <Link
                                 href={currentSlide.link}
-                                className="inline-flex items-center"
+                                className="inline-flex items-center w-full"
                             >
-                                <Button variant="primary" size="lg">   
+                                <Button variant="primary" size="lg" className="w-full md:w-auto">   
                                     <span>{currentSlide.buttonText}</span>
                                     <span className="text-lg ml-2">→</span>
                                 </Button>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HeroSlider from "@/components/sections/HeroSlider";
+import SocialSection from "@/components/sections/SocialSection";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -43,11 +44,12 @@ export default function Home() {
                 href="/contact"
                 className="mt-6 inline-flex items-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-background transition hover:opacity-90"
               >
-                Voir les horaires et nous contacter
+                Voir les horaires / Nous contacter
               </Link>
             </div>
           </div>
         </section>
+        <SocialSection />
       </main>
     </div>
   );

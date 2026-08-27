@@ -42,7 +42,7 @@ export default async function AdminPage() {
 
   return (
     <div className="space-y-8">
-      <section className="rounded-xl border border-border bg-muted/70 p-6 shadow-[0_20px_80px_rgba(31,43,91,0.08)] backdrop-blur-sm sm:p-8">
+      <section className="rounded-md border border-accent bg-muted/70 p-6 shadow-[0_20px_80px_rgba(31,43,91,0.08)] backdrop-blur-sm sm:p-8">
         <p className="text-xs font-medium uppercase tracking-[0.35em] text-secondary">
           Dashboard admin
         </p>
@@ -56,17 +56,17 @@ export default async function AdminPage() {
       </section>
 
       <section id="content" className="grid gap-4 lg:grid-cols-2">
-        <article className="rounded-2xl border border-border bg-background p-6">
+        <article className="rounded-md border border-accent bg-background p-6">
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-secondary">
             Accès rapides
           </p>
-          <a href="/admin/companies/create" className="mt-4 block rounded-lg border border-border/70 bg-muted/50 p-4 text-sm text-secondary transition-colors hover:bg-muted">
-            <span className="block font-medium text-foreground">Ajouter une entreprise</span>
-            <span className="mt-1 block">Créer une nouvelle entreprise du groupe.</span>
+          <a href="/admin" className="mt-4 block rounded-md border border-accent bg-muted/50 p-4 text-sm text-secondary transition-colors hover:bg-muted">
+            <span className="block font-medium text-foreground">Dashboard</span>
+            <span className="mt-1 block">Accéder au dashboard administratif.</span>
           </a>
 
         </article>
-        <article className="rounded-2xl border border-border bg-background p-6">
+        <article className="rounded-md border border-accent bg-background p-6">
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-secondary mb-3">
             Espace de stockage
           </p>
@@ -120,14 +120,15 @@ export default async function AdminPage() {
         </article>
       </section>
 
-      <section id="messages" className="">
-        <article className="rounded-2xl border border-border bg-background p-6">
+      {/* A décommenter lors de l'ajout des statistiques de Vercel Analytics */}
+      {/* <section id="messages" className="">
+        <article className="rounded-md border border-accent bg-background p-6">
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-secondary">
             Mesure d'audience
           </p>
           
         </article>
-      </section>
+      </section> */}
     </div>
   );
 }
