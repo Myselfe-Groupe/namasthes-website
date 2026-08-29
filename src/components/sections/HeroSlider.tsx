@@ -19,7 +19,7 @@ const slides: Slide[] = [
     {
         id: 1,
         title: 'Boulangerie',
-        description: 'Lundi - Jeudi : 06:00 - 21:00\nVendredi - Samedi : 06:00 - 21:30\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Lundi - Samedi : 06:30 - 21:00\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/produits/boulangerie',
         buttonText: 'Découvrir',
         image: '/images/vitrine-contrast.jpeg',
@@ -27,7 +27,7 @@ const slides: Slide[] = [
     {
         id: 2,
         title: 'Pizzeria',
-        description: 'Lundi - Jeudi : 11:30 - 14:00 / 19:00 - 21:00\nVendredi - Samedi : 11:30 - 14:00 / 19:00 - 21:30\nDimanche : 11:30 - 13:00 / 19:00 - 21:00',
+        description: 'Lundi - Samedi : 11:30 - 14:00 / 19:00 - 21:00\nDimanche : 11:30 - 13:00 / 19:00 - 21:00',
         link: '/produits/pizzeria',
         buttonText: 'Découvrir',
         image: '/images/vitrine-contrast.jpeg',
@@ -35,7 +35,7 @@ const slides: Slide[] = [
     {
         id: 3,
         title: 'Pâtisserie',
-        description: 'Lundi - Jeudi : 06:00 - 21:00\nVendredi - Samedi : 06:00 - 21:30\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Lundi - Samedi : 06:30 - 21:00\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/produits/patisserie',
         buttonText: 'Découvrir',
         image: '/images/patisserie.jpg',
@@ -43,7 +43,7 @@ const slides: Slide[] = [
     {
         id: 4,
         title: 'Snacking',
-        description: 'Lundi - Jeudi : 06:00 - 21:00\nVendredi - Samedi : 06:00 - 21:30\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Lundi - Samedi : 06:30 - 21:00\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/produits/snacking',
         buttonText: 'Découvrir',
         image: '/images/snacking.jpg',
@@ -51,7 +51,7 @@ const slides: Slide[] = [
     {
         id: 5,
         title: 'Chocolaterie',
-        description: 'Lundi - Jeudi : 06:00 - 21:00\nVendredi - Samedi : 06:00 - 21:30\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Lundi - Samedi : 06:30 - 21:00\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/produits/chocolaterie',
         buttonText: 'Découvrir',
         image: '/images/chocolaterie.jpg',
@@ -59,7 +59,7 @@ const slides: Slide[] = [
     {
         id: 6,
         title: 'Salon de thé',
-        description: 'Lundi - Jeudi : 06:00 - 21:00\nVendredi - Samedi : 06:00 - 21:30\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Lundi - Samedi : 06:30 - 21:00\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
         link: '/produits/salon-de-the',
         buttonText: 'Découvrir',
         image: '/images/salon-de-the.jpg',

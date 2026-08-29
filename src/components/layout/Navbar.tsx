@@ -3,15 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { LuPhone } from "react-icons/lu";
 
 // Structure des sous-catégories de produits
 const productCategories = [
     { label: "Boulangerie", href: "/produits/boulangerie" },
     { label: "Pâtisserie", href: "/produits/patisserie" },
-	{ label: "Pizzeria", href: "/produits/pizzeria" },
+    { label: "Pizzeria", href: "/produits/pizzeria" },
     { label: "Snacking", href: "/produits/snacking" },
     { label: "Salon de thé", href: "/produits/salon-de-the" },
-	{ label: "Chocolaterie", href: "/produits/chocolaterie" },
+    { label: "Chocolaterie", href: "/produits/chocolaterie" },
 ];
 
 export default function Navbar() {
@@ -26,22 +27,28 @@ export default function Navbar() {
     return (
         <header className="sticky top-0 z-30 bg-primary shadow-[inset_0_-1px_0_0_var(--border)] backdrop-blur-md">
             <div className="relative">
-                <div className="z-50 mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-4 sm:px-10 lg:px-12">
-                    <nav className="justify-center items-center gap-8 flex w-17" aria-label="Navigation principale">
-                        <button
-                            type="button"
-                            className="cursor-pointer inline-flex items-center justify-center rounded-full border border-border bg-primary p-2 text-background transition-colors hover:opacity-90"
-                            aria-label="Ouvrir le menu"
-                            aria-expanded={isMobileMenuOpen}
-                            onClick={() => setIsMobileMenuOpen((value) => !value)}
-                        >
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <path d="M4 7H20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                                <path d="M4 12H20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                                <path d="M4 17H20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                            </svg>
-                        </button>
-                    </nav>
+                <nav className="z-50 mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-4 sm:px-10 lg:px-12">
+                    <div className="w-62.5 flex items-center gap-4 text-border sm:gap-6">
+                        <div className="justify-center items-center gap-8 flex" aria-label="Navigation principale">
+                            <button
+                                type="button"
+                                className="cursor-pointer inline-flex items-center justify-center rounded-full border border-border bg-primary p-2 text-background transition-colors hover:opacity-90"
+                                aria-label="Ouvrir le menu"
+                                aria-expanded={isMobileMenuOpen}
+                                onClick={() => setIsMobileMenuOpen((value) => !value)}
+                            >
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M4 7H20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                                    <path d="M4 12H20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                                    <path d="M4 17H20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="tel:+33555231016" className="flex items-start gap-2 text-background hover:text-border transition-colors">
+                            <LuPhone className="w-5 h-5 text-border" />
+                            <span className="text-sm hidden sm:inline">05 55 23 10 16</span>
+                        </a>
+                    </div>
 
                     <Link href="/" className="relative flex flex-col leading-none text-foreground items-center justify-center h-full">
                         <Image
@@ -52,7 +59,7 @@ export default function Navbar() {
                         />
                     </Link>
 
-                    <div className="flex items-center gap-4 text-border">
+                    <div className="w-62.5 flex items-center justify-end  gap-4 text-border">
                         <a
                             href="https://www.instagram.com/namas.thes/"
                             aria-label="Instagram"
@@ -72,13 +79,12 @@ export default function Navbar() {
                             <TikTokIcon />
                         </a>
                     </div>
-                </div>
+                </nav>
 
                 {/* Tiroir de navigation */}
                 <div
-                    className={`fixed left-0 top-23.1 h-[calc(100dvh-5.75rem)] w-72 border-r border-border/60 bg-primary/95 transition-transform duration-300 ease-out sm:w-80 ${
-                        isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-                    }`}
+                    className={`fixed left-0 top-23.1 h-[calc(100dvh-5.75rem)] w-72 border-r border-border/60 bg-primary/95 transition-transform duration-300 ease-out sm:w-80 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+                        }`}
                 >
                     <nav className="flex h-full flex-col gap-1 overflow-y-auto px-6 py-6" aria-label="Navigation mobile">
                         <Link href="/" onClick={handleCloseMenu} className="relative flex flex-col leading-none text-foreground items-center justify-center mb-4">
