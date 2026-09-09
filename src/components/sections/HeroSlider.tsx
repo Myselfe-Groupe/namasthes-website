@@ -30,7 +30,7 @@ const slides: Slide[] = [
         description: 'Lundi - Samedi : 11:30 - 14:00 / 19:00 - 21:00\nDimanche : 11:30 - 13:00 / 19:00 - 21:00',
         link: '/produits/pizzeria',
         buttonText: 'Découvrir',
-        image: '/images/vitrine-contrast.jpeg',
+        image: '/images/pizzeria.jpg',
     },
     {
         id: 3,

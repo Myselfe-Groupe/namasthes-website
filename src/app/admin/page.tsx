@@ -13,7 +13,7 @@ export default async function AdminPage() {
   const cookieStore = cookies();
   const supabase = createClient(await cookieStore);
 
-  const trackedBuckets = ["companies"]
+  const trackedBuckets = ["users", "companies", "products"]
   const storageQuotaGb = Number(process.env.SUPABASE_STORAGE_QUOTA_GB ?? 0)
   const storageQuotaBytes = Number.isFinite(storageQuotaGb) && storageQuotaGb > 0
     ? storageQuotaGb * 1024 * 1024 * 1024
@@ -60,9 +60,9 @@ export default async function AdminPage() {
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-secondary">
             Accès rapides
           </p>
-          <a href="/admin" className="mt-4 block rounded-md border border-accent bg-muted/50 p-4 text-sm text-secondary transition-colors hover:bg-muted">
-            <span className="block font-medium text-foreground">Dashboard</span>
-            <span className="mt-1 block">Accéder au dashboard administratif.</span>
+          <a href="/admin/products/create" className="mt-4 block rounded-md border border-accent bg-muted/50 p-4 text-sm text-secondary transition-colors hover:bg-muted">
+            <span className="block font-medium text-foreground">Nouveau produit</span>
+            <span className="mt-1 block">Ajouter un produit</span>
           </a>
 
         </article>

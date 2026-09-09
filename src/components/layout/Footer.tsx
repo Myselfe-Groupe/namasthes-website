@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const usefulLinks = [
-	{ label: "Allergènes", href: "/allergènes/Allergènes.pdf" },
+	{ label: "Allergènes", href: "/allergenes" },
 	{ label: "Contact", href: "/contact" },
 ];
 
@@ -103,7 +103,7 @@ export default function Footer() {
 			</div>
 
 			<div className="border-t border-border px-6 py-4 text-center text-xs text-background sm:px-10 lg:px-12">
-				<p><span className="font-semibold text-border">©</span> 2026 Namas'thé. Tous droits réservés</p>
+				<p><span className="font-semibold text-border">©</span> 2026 Namas'thés. Tous droits réservés</p>
 			</div>
 		</footer>
 	);

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import HeroSlider from "@/components/sections/HeroSlider";
 import SocialSection from "@/components/sections/SocialSection";
 import Link from "next/link";
+import NewProductsSection from "@/components/sections/ProductsSection";
+import MoreProducts from "@/components/sections/MoreProducts";
 
 export const metadata: Metadata = {
   title: "Namas'thés à Saint-Viance",
@@ -32,7 +34,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="w-full max-w-md rounded-2xl border border-border/70 bg-muted p-6 shadow-sm">
+            <div className="w-full max-w-md rounded-md border border-border/70 bg-muted p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-secondary">Rendez-nous visite !</h3>
               <p className="mt-3 text-sm leading-7 text-foreground/80">
                 1 Place du Commerce, 19240 Saint-Viance
@@ -49,6 +51,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <NewProductsSection />
+        <MoreProducts />
         <SocialSection />
       </main>
     </div>

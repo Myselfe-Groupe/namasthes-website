@@ -4,6 +4,7 @@ import Button from "../ui/Button";
 
 const navItems = [
   { href: "/admin", label: "Vue d'ensemble" },
+  { href: "/admin/products", label: "Produits" },
 ];
 
 export default function AdminSidebar({

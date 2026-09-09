@@ -38,7 +38,7 @@ export default function SocialSection() {
             Suivez-nous !
           </p>
 
-          <h2 className="mt-3 text-3xl font-title text-foreground sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-title text-secondary sm:text-4xl">
             Retrouvez Namas'thés sur les réseaux
           </h2>
 
@@ -48,7 +48,7 @@ export default function SocialSection() {
           </p>
         </div>
 
-        <div className="mt-12 grid items-start lg:grid-cols-2">
+        <div className="mt-12 grid items-start grid-cols-2">
           {/* Instagram */}
           <div className="flex justify-center overflow-hidden rounded-md">
             <blockquote

@@ -17,7 +17,8 @@ export default function ContactPage() {
                 <div className="flex flex-col md:flex-row gap-3 mt-4 text-xs sm:text-sm text-secondary">
                     <div className="w-full flex flex-col gap-1 border border-secondary/20 p-4 rounded-lg bg-muted">
                         <h3 className="text-base md:text-lg font-bold">Boulangerie</h3>
-                        <p>Lun-Sam : 06:30 - 21:00</p>
+                        <p>Lun-Ven : 06:30 - 21:00</p>
+                        <p>Sam : 07:00 - 21:00</p>
                         <p>Dim : 07:00 - 13:00</p>
                     </div>
                     <div className="w-full flex flex-col gap-1 border border-secondary/20 p-4 rounded-lg bg-muted">

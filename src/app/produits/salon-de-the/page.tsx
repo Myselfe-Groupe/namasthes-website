@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import ProductsSection from "@/components/sections/ProductsSection";
 
 export const metadata: Metadata = {
     title: "Salon de thé",
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
     }
 };
 
-export default function SalonDeThePage() {
+export default async function SalonDeThePage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
+    const page = Number.parseInt((await searchParams).page ?? "1", 10);
+
     return (
         <main className="bg-background text-foreground">
             <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:py-20 sm:px-10 lg:px-12">
@@ -38,6 +41,7 @@ export default function SalonDeThePage() {
                     </div>
                 </div>
             </div>
+            <ProductsSection category="salon-de-the" page={Number.isNaN(page) ? 1 : page} />
         </main>
     );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import ProductsSection from "@/components/sections/ProductsSection";
 
 export const metadata: Metadata = {
     title: "Boulangerie",
@@ -9,10 +10,12 @@ export const metadata: Metadata = {
     }
 };
 
-export default function BoulangeriePage() {
+export default async function BoulangeriePage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
+    const page = Number.parseInt((await searchParams).page ?? "1", 10);
+
     return (
         <main className="bg-background text-foreground">
-            <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:py-20 sm:px-10 lg:px-12">
+            <div className="w-full max-w-6xl mx-auto px-6 py-10 sm:py-20 sm:px-10 lg:px-12">
                 <div className="relative flex flex-col gap-4 justify-center items-center">
                     <h1 className="absolute top-10 sm:top-18 text-2xl sm:text-4xl font-text uppercase text-secondary z-10">Boulangerie</h1>
                     <span className="font-title text-accent/70 text-7xl sm:text-9xl text-center drop-shadow-lg z-0">Boulangerie</span>
@@ -37,6 +40,7 @@ export default function BoulangeriePage() {
                     </div>
                 </div>
             </div>
+            <ProductsSection category="boulangerie" page={Number.isNaN(page) ? 1 : page} />
         </main>
     );
 }
