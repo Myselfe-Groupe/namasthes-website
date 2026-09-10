@@ -70,16 +70,16 @@ export default async function ProductPage({
 
     return (
         <main className="bg-background text-foreground">
-            <div className="relative mx-auto w-full max-w-6xl px-6 py-10 sm:px-10 sm:py-10 lg:px-12">
+            <div className="relative mx-auto w-full max-w-6xl px-6 py-10 sm:px-10 sm:py-10 md:px-12">
                 <Link
                     href={`/produits/${product.category}`}
-                    className="absolute -left-12 top-18 flex flex-row items-center gap-2 text-sm font-semibold text-primary underline underline-offset-4"
+                    className="absolute xl:-left-10 xl:top-18 flex flex-row items-center gap-2 text-sm font-semibold text-primary underline underline-offset-4"
                 >
                     <GoArrowLeft />
                     Retour
                 </Link>
 
-                <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-start">
+                <div className="mt-8 grid gap-10 md:grid-cols-2 md:items-start">
                     {product.image_url ? (
                         <Image
                             src={product.image_url}
