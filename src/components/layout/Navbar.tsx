@@ -105,6 +105,14 @@ export default function Navbar() {
                             Accueil
                         </Link>
 
+                        <Link
+                            href="/carte-des-pizzas"
+                            onClick={handleCloseMenu}
+                            className="rounded-xl px-3 py-3 text-sm text-center font-medium text-background transition-colors hover:bg-white/5"
+                        >
+                            Carte des pizzas
+                        </Link>
+
                         {/* Accordéon "Nos produits" */}
                         <div className="flex flex-col">
                             <button
