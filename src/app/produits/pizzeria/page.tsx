@@ -10,8 +10,9 @@ export const metadata: Metadata = {
     }
 };
 
-export default async function PizzeriaPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
-    const page = Number.parseInt((await searchParams).page ?? "1", 10);
+export default async function PizzeriaPage({ searchParams }: { searchParams: Promise<{ page?: string; q?: string }> }) {
+    const params = await searchParams;
+    const page = Number.parseInt(params.page ?? "1", 10);
 
     return (
         <main className="bg-background text-foreground">
@@ -47,7 +48,7 @@ export default async function PizzeriaPage({ searchParams }: { searchParams: Pro
                     </div>
                 </div>
             </div>
-            <ProductsSection category="pizzeria" page={Number.isNaN(page) ? 1 : page} />
+            <ProductsSection category="pizzeria" page={Number.isNaN(page) ? 1 : page} query={params.q} />
         </main>
     );
 }
