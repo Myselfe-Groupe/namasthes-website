@@ -20,14 +20,14 @@ export default function MoreProducts() {
                     <Link
                         key={category.href}
                         href={category.href}
-                        className="relative bg-primary p-8 sm:p-10 text-xs sm:text-sm font-semibold text-background flex items-center justify-center text-center underline underline-offset-4"
+                        className="overflow-hidden relative bg-primary p-8 sm:p-10 text-xs sm:text-sm font-semibold text-background flex items-center justify-center text-center underline underline-offset-4 rounded-sm"
                     >
                         <Image
                             src={category.image}
                             alt={category.label}
                             width={100}
                             height={100}
-                            className="absolute h-full w-full object-cover opacity-10"
+                            className="absolute h-full w-full object-cover opacity-10 hover:scale-110 transition-transform duration-300"
                         />
                         {category.label}
                     </Link>

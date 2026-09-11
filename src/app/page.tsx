@@ -4,6 +4,7 @@ import SocialSection from "@/components/sections/SocialSection";
 import Link from "next/link";
 import NewProductsSection from "@/components/sections/ProductsSection";
 import MoreProducts from "@/components/sections/MoreProducts";
+import Button from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Namas'thés à Saint-Viance",
@@ -33,20 +34,29 @@ export default function Home() {
                 Situé au cœur de Saint-Viance, le restaurant propose des produits faits avec soin, des horaires adaptés à toute la journée et un cadre chaleureux pour les familles, les amis et les pauses gourmandes.
               </p>
             </div>
-
-            <div className="w-full max-w-md rounded-md border border-border/70 bg-muted p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-secondary">Rendez-nous visite !</h3>
-              <p className="mt-3 text-sm leading-7 text-foreground/80">
-                1 Place du Commerce, 19240 Saint-Viance
-              </p>
-              <p className="mt-2 text-sm leading-7 text-foreground/80">
-                Téléphone : 05 55 23 10 16
-              </p>
+            <div className="w-full flex flex-col items-center gap-3 lg:items-start">
+              <div className="w-full max-w-md rounded-md border border-border/70 bg-muted p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-secondary">Rendez-nous visite !</h3>
+                <p className="mt-3 text-sm leading-7 text-foreground/80">
+                  1 Place du Commerce, 19240 Saint-Viance
+                </p>
+                <p className="mt-2 text-sm leading-7 text-foreground/80">
+                  Téléphone : 05 55 23 10 16
+                </p>
+                <Link
+                  href="/contact"
+                  className="mt-6 inline-flex items-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-background transition hover:opacity-90"
+                >
+                  Voir les horaires / Nous contacter
+                </Link>
+              </div>
               <Link
-                href="/contact"
-                className="mt-6 inline-flex items-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-background transition hover:opacity-90"
+                href="/carte-des-pizzas"
+                className="w-full inline-flex items-center text-center justify-center"
               >
-                Voir les horaires / Nous contacter
+                <Button variant="primary" size="lg" className="w-full">
+                  Carte des pizzas
+                </Button>
               </Link>
             </div>
           </div>

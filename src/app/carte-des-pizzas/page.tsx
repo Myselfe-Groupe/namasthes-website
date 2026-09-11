@@ -28,12 +28,12 @@ export default function MenuPage() {
 					</p>
 				</div>
 
-				<div className="mx-auto max-w-5xl overflow-hidden rounded-sm border border-accent bg-muted shadow-lg sm:p-5">
+				<div className="mx-auto max-w-5xl overflow-hidden rounded-sm border border-accent bg-muted shadow-lg p-2">
 					<Image
 						src={menuImage}
 						alt="Carte des pizzas de Namas'thés"
 						width={2000}
-						height={1400}
+						height={1414}
 						className="h-auto w-full rounded-sm object-contain"
 						priority
 					/>
