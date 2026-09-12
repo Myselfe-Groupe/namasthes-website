@@ -94,13 +94,13 @@ export default async function AdminPage() {
                     Restant : <span className="font-semibold">{formatBytes(remainingStorageBytes)}</span>
                   </p>
                   <div className="space-y-1.5 pt-4">
-                    <div className="h-2 w-full rounded-full bg-secondary/70 overflow-hidden">
+                    <div className="h-2 w-full rounded-full bg-accent overflow-hidden">
                       <div
                         className={`h-full rounded-full transition-all ${(usagePercent ?? 0) >= 90
                           ? "bg-destructive"
                           : (usagePercent ?? 0) >= 75
                             ? "bg-amber-500"
-                            : "bg-primary-500"
+                            : "bg-primary"
                           }`}
                         style={{ width: `${usagePercent ?? 0}%` }}
                       />
