@@ -243,11 +243,11 @@ export default function CreateProductPage() {
                 </div>
 
                 <div>
-                    <label className="mb-2 block text-sm font-medium">
+                    <label className="mb-2 block text-base font-medium">
                         Allergènes
                     </label>
 
-                    <div className="grid gap-3 sm:grid-cols-2">
+                    <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-4">
                         {[
                             "Gluten",
                             "Crustacés",
@@ -266,7 +266,7 @@ export default function CreateProductPage() {
                         ].map((allergen) => (
                             <label
                                 key={allergen}
-                                className="flex items-center gap-3 rounded-lg border p-3 cursor-pointer"
+                                className="flex items-center gap-3 rounded-lg border p-3 cursor-pointer text-sm"
                             >
                                 <input
                                     type="checkbox"
@@ -287,11 +287,11 @@ export default function CreateProductPage() {
                 </div>
 
                 <div>
-                    <label className="mb-2 block text-sm font-medium">
+                    <label className="mb-2 block text-base font-medium">
                         Risques de traces
                     </label>
 
-                    <div className="grid gap-3 sm:grid-cols-2">
+                    <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-4">
                         {[
                             "Gluten",
                             "Crustacés",
@@ -310,7 +310,7 @@ export default function CreateProductPage() {
                         ].map((allergen) => (
                             <label
                                 key={allergen}
-                                className="flex items-center gap-3 rounded-lg border p-3 cursor-pointer"
+                                className="flex items-center gap-3 rounded-lg border p-3 cursor-pointer text-sm"
                             >
                                 <input
                                     type="checkbox"
