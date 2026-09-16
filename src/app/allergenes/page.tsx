@@ -17,6 +17,7 @@ interface Product {
     category: string;
     image_url: string | null;
     allergens: unknown;
+    risk_of_traces: unknown;
 }
 
 const PRODUCTS_PER_PAGE = 10;
@@ -76,7 +77,7 @@ export default async function AllergensPage({
     const supabase = createClient(await cookies());
     let productsQuery = supabase
         .from("products")
-        .select("id, name, category, image_url, allergens", { count: "exact" });
+        .select("id, name, category, image_url, allergens, risk_of_traces", { count: "exact" });
 
     if (searchQuery) {
         productsQuery = productsQuery.ilike("name", `%${searchQuery}%`);
@@ -128,54 +129,78 @@ export default async function AllergensPage({
                 {products.length === 0 ? (
                     <p className="text-foreground/70">Aucun produit disponible.</p>
                 ) : (
-                    <div className="overflow-x-auto rounded-sm border border-border/70">
-                        <table className="w-full min-w-275 border-collapse text-xs">
-                            <thead className="bg-muted">
-                                <tr>
-                                    <th className="sticky left-0 z-10 border-b border-border/70 bg-muted p-4 text-left font-semibold">
-                                        Produit
-                                    </th>
-                                    {ALLERGENS.map((allergen) => (
-                                        <th
-                                            key={allergen}
-                                            className="border-b border-border/70 p-3 text-center font-semibold"
-                                            title={allergen}
-                                        >
-                                            {allergen}
+                    <div>
+                        <div className="overflow-x-auto rounded-sm border border-border/70">
+                            <table className="w-full min-w-275 border-collapse text-xs">
+                                <thead className="bg-muted">
+                                    <tr>
+                                        <th className="sticky left-0 z-10 border-b border-border/70 bg-muted p-4 text-left font-semibold">
+                                            Produit
                                         </th>
-                                    ))}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {products.map((product) => {
-                                    const allergens = normalizeAllergens(product.allergens);
-
-                                    return (
-                                        <tr key={product.id} className="border-b border-border/50 last:border-b-0">
-                                            <th className="sticky left-0 z-10 bg-background p-4 text-left font-semibold">
-                                                <Link
-                                                    href={`/produits/${product.id}`}
-                                                    className="text-secondary underline underline-offset-4"
-                                                >
-                                                    {product.name}
-                                                </Link>
+                                        {ALLERGENS.map((allergen) => (
+                                            <th
+                                                key={allergen}
+                                                className="border-b border-border/70 p-3 text-center font-semibold"
+                                                title={allergen}
+                                            >
+                                                {allergen}
                                             </th>
-                                            {ALLERGENS.map((allergen) => (
-                                                <td key={allergen} className="p-3 text-center">
-                                                    {allergens.includes(allergen) ? (
-                                                        <span className="font-bold text-primary" aria-label={`Contient ${allergen}`}>
-                                                            ✓
-                                                        </span>
-                                                    ) : (
-                                                        <span className="text-foreground/20" aria-hidden="true">-</span>
-                                                    )}
-                                                </td>
-                                            ))}
-                                        </tr>
-                                    );
-                                })}
-                            </tbody>
-                        </table>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {products.map((product) => {
+                                        const allergens = normalizeAllergens(product.allergens);
+                                        const riskOfTraces = normalizeAllergens(product.risk_of_traces);
+
+                                        return (
+                                            <tr key={product.id} className="border-b border-border/50 last:border-b-0">
+                                                <th className="sticky left-0 z-10 bg-background p-4 text-left font-semibold">
+                                                    <Link
+                                                        href={`/produits/${product.id}`}
+                                                        className="text-secondary underline underline-offset-4"
+                                                    >
+                                                        {product.name}
+                                                    </Link>
+                                                </th>
+                                                {ALLERGENS.map((allergen) => {
+                                                    const containsAllergen = allergens.includes(allergen);
+                                                    const hasRiskOfTraces = riskOfTraces.includes(allergen);
+
+                                                    return (
+                                                        <td key={allergen} className="p-3 text-center">
+                                                            {containsAllergen || hasRiskOfTraces ? (
+                                                                <span className="inline-flex items-center gap-1" aria-label={`${containsAllergen ? `Contient ${allergen}` : ""}${containsAllergen && hasRiskOfTraces ? "; " : ""}${hasRiskOfTraces ? `Risque de traces de ${allergen}` : ""}`}>
+                                                                    {containsAllergen && (
+                                                                        <span className="font-bold text-primary" aria-hidden="true">✓</span>
+                                                                    )}
+                                                                    {hasRiskOfTraces && (
+                                                                        <span className="font-bold text-secondary" aria-hidden="true">⚠</span>
+                                                                    )}
+                                                                </span>
+                                                            ) : (
+                                                                <span className="text-foreground/20" aria-hidden="true">-</span>
+                                                            )}
+                                                        </td>
+                                                    );
+                                                })}
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-foreground/80" aria-label="Légende du tableau">
+                            <span className="inline-flex items-center gap-2">
+                                <span className="font-bold text-primary" aria-hidden="true">✓</span>
+                                Présence déclarée
+                            </span>
+                            <span className="inline-flex items-center gap-2">
+                                <span className="font-bold text-secondary" aria-hidden="true">⚠</span>
+                                Risque de traces
+                            </span>
+                        </div>
                     </div>
                 )}
 
