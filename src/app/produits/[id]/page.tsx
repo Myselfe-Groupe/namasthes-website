@@ -15,6 +15,7 @@ interface Product {
     image_url: string | null;
     website: string | null;
     allergens: unknown;
+    risk_of_traces: unknown;
 }
 
 function normalizeAllergens(value: unknown): string[] {
@@ -66,6 +67,7 @@ export default async function ProductPage({
 
     const product = data as Product;
     const allergens = normalizeAllergens(product.allergens);
+    const riskOfTraces = normalizeAllergens(product.risk_of_traces);
     const categoryName = categoryLabels[product.category] ?? product.category;
 
     return (
@@ -116,6 +118,22 @@ export default async function ProductPage({
                                         <li
                                             key={allergen}
                                             className="rounded-full border border-border bg-muted px-3 py-1 text-sm"
+                                        >
+                                            {allergen}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+
+                        {riskOfTraces.length > 0 && (
+                            <div>
+                                <h2 className="text-sm text-secondary">Risques de traces</h2>
+                                <ul className="mt-3 flex flex-wrap gap-2">
+                                    {riskOfTraces.map((allergen) => (
+                                        <li
+                                            key={allergen}
+                                            className="rounded-full bg-muted px-3 py-1 text-xs"
                                         >
                                             {allergen}
                                         </li>

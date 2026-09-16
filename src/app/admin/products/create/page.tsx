@@ -17,6 +17,7 @@ export default function CreateProductPage() {
     const [description, setDescription] = useState("");
     const [image, setImage] = useState<File | null>(null);
     const [allergens, setAllergens] = useState<string[]>([]);
+    const [riskOfTraces, setRiskOfTraces] = useState<string[]>([]);
 
     const [isDragging, setIsDragging] = useState(false);
     const [preview, setPreview] = useState<string | null>(
@@ -74,6 +75,7 @@ export default function CreateProductPage() {
                     category,
                     image_url: imageUrl,
                     allergens,
+                    risk_of_traces: riskOfTraces,
                 });
 
             if (error) {
@@ -271,6 +273,50 @@ export default function CreateProductPage() {
                                     checked={allergens.includes(allergen)}
                                     onChange={(e) =>
                                         setAllergens((prev) =>
+                                            e.target.checked
+                                                ? [...prev, allergen]
+                                                : prev.filter((item) => item !== allergen)
+                                        )
+                                    }
+                                    className="h-4 w-4"
+                                />
+                                <span>{allergen}</span>
+                            </label>
+                        ))}
+                    </div>
+                </div>
+
+                <div>
+                    <label className="mb-2 block text-sm font-medium">
+                        Risques de traces
+                    </label>
+
+                    <div className="grid gap-3 sm:grid-cols-2">
+                        {[
+                            "Gluten",
+                            "Crustacés",
+                            "Œufs",
+                            "Poissons",
+                            "Arachides",
+                            "Soja",
+                            "Lait",
+                            "Fruits à coque",
+                            "Céleri",
+                            "Moutarde",
+                            "Graines de sésame",
+                            "Sulfites",
+                            "Lupin",
+                            "Mollusques",
+                        ].map((allergen) => (
+                            <label
+                                key={allergen}
+                                className="flex items-center gap-3 rounded-lg border p-3 cursor-pointer"
+                            >
+                                <input
+                                    type="checkbox"
+                                    checked={riskOfTraces.includes(allergen)}
+                                    onChange={(e) =>
+                                        setRiskOfTraces((prev) =>
                                             e.target.checked
                                                 ? [...prev, allergen]
                                                 : prev.filter((item) => item !== allergen)
