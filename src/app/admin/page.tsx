@@ -60,10 +60,16 @@ export default async function AdminPage() {
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-secondary">
             Accès rapides
           </p>
-          <a href="/admin/products/create" className="mt-4 block rounded-md border border-accent bg-muted/50 p-4 text-sm text-secondary transition-colors hover:bg-muted">
-            <span className="block font-medium text-foreground">Nouveau produit</span>
-            <span className="mt-1 block">Ajouter un produit</span>
-          </a>
+          <div className="mt-4 grid grid-cols-2 gap-2">
+            <a href="/admin/products/create" className="w-full mt-4 block rounded-md border border-accent bg-muted/50 p-4 text-sm text-secondary transition-colors hover:bg-muted">
+              <span className="block font-medium text-foreground">Nouveau produit</span>
+              <span className="mt-1 block">Ajouter un produit</span>
+            </a>
+            <a href="/admin/partners/create" className="w-full mt-4 block rounded-md border border-accent bg-muted/50 p-4 text-sm text-secondary transition-colors hover:bg-muted">
+              <span className="block font-medium text-foreground">Nouveau partenaire</span>
+              <span className="mt-1 block">Ajouter un partenaire</span>
+            </a>
+          </div>
 
         </article>
         <article className="rounded-md border border-accent bg-background p-6">

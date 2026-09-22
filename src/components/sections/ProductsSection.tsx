@@ -97,10 +97,10 @@ export default async function ProductsSection({ category, page = 1, query = "" }
 									<p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
 										{categoryLabels[product.category] ?? product.category}
 									</p>
-									<h3 className="text-xl font-semibold text-secondary">
+									<h3 className="sm:text-xl font-semibold text-secondary">
 										{product.name}
 									</h3>
-									<p className="line-clamp-2 text-sm leading-6 text-foreground/75">
+									<p className="line-clamp-2 text-xs sm:text-sm sm:leading-6 text-foreground/75">
 										{product.description}
 									</p>
 								</div>

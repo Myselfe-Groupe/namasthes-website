@@ -5,6 +5,7 @@ import Link from "next/link";
 import NewProductsSection from "@/components/sections/ProductsSection";
 import MoreProducts from "@/components/sections/MoreProducts";
 import Button from "@/components/ui/Button";
+import PartnersSection from "@/components/sections/PartnersSection";
 
 export const metadata: Metadata = {
   title: "Namas'thés à Saint-Viance",
@@ -64,6 +65,7 @@ export default function Home() {
         <NewProductsSection />
         <MoreProducts />
         <SocialSection />
+        <PartnersSection />
       </main>
     </div>
   );

@@ -48,7 +48,7 @@ export default function SocialSection() {
           </p>
         </div>
 
-        <div className="mt-12 grid items-start grid-cols-2">
+        <div className="mt-12 grid items-start md:grid-cols-2">
           {/* Instagram */}
           <div className="flex justify-center overflow-hidden rounded-md">
             <blockquote
