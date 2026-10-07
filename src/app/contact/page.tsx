@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/contact/ContactForm";
+import OpeningHours from "@/components/sections/OpeningHours";
 
 export const metadata: Metadata = {
     title: "Contact",
@@ -14,18 +15,8 @@ export default function ContactPage() {
         <main className="bg-background text-foreground">
             <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:py-20 sm:px-10 lg:px-12">
                 <h2 className="text-5xl font-title text-secondary">Horaires</h2>
-                <div className="flex flex-col md:flex-row gap-3 mt-4 text-xs sm:text-sm text-secondary">
-                    <div className="w-full flex flex-col gap-1 border border-secondary/20 p-4 rounded-lg bg-muted">
-                        <h3 className="text-base md:text-lg font-bold">Boulangerie</h3>
-                        <p>Lun-Ven : 06:30 - 21:00</p>
-                        <p>Sam : 07:00 - 21:00</p>
-                        <p>Dim : 07:00 - 13:00</p>
-                    </div>
-                    <div className="w-full flex flex-col gap-1 border border-secondary/20 p-4 rounded-lg bg-muted">
-                        <h3 className="text-base md:text-lg font-bold">Pizzeria</h3>
-                        <p>Lun-Sam : 11:30 - 14:00 / 19:00 - 21:00</p>
-                        <p>Dim : 11:30 - 13:00 / 19:00 - 21:00</p>
-                    </div>
+                <div className="mt-4">
+                    <OpeningHours />
                 </div>
             </div>
             <div className="mx-auto w-full max-w-6xl px-6 py-10 sm:py-20 sm:px-10 lg:px-12">

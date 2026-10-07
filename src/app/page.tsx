@@ -6,6 +6,7 @@ import NewProductsSection from "@/components/sections/ProductsSection";
 import MoreProducts from "@/components/sections/MoreProducts";
 import Button from "@/components/ui/Button";
 import PartnersSection from "@/components/sections/PartnersSection";
+import OpeningHours from "@/components/sections/OpeningHours";
 
 export const metadata: Metadata = {
   title: "Namas'thés à Saint-Viance",
@@ -22,21 +23,21 @@ export default function Home() {
         <HeroSlider />
 
         <section className="w-full bg-background px-6 py-16 sm:px-10 lg:px-12">
-          <div className="mx-auto flex max-w-6xl flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-            <div className="max-w-2xl">
+          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
+            <div className="min-w-0">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">Boulangerie et pizzeria à Saint-Viance</p>
               <h2 className="mt-3 text-3xl font-title text-secondary sm:text-4xl">
-                Namas'thés, votre adresse gourmande à Saint-Viance
+                Namas&apos;thés, votre adresse gourmande à Saint-Viance
               </h2>
               <p className="mt-4 text-base leading-8 text-foreground/80 sm:text-lg">
-                Entre boulangerie artisanale, pizzeria, pâtisserie, chocolat et salon de thé, Namas'thés vous accueille pour des moments gourmands sur place ou à emporter.
+                Entre boulangerie artisanale, pizzeria, pâtisserie, chocolat et salon de thé, Namas&apos;thés vous accueille pour des moments gourmands sur place ou à emporter.
               </p>
               <p className="mt-4 text-base leading-8 text-foreground/80 sm:text-lg">
                 Situé au cœur de Saint-Viance, le restaurant propose des produits faits avec soin, des horaires adaptés à toute la journée et un cadre chaleureux pour les familles, les amis et les pauses gourmandes.
               </p>
             </div>
-            <div className="w-full flex flex-col items-center gap-3 lg:items-start">
-              <div className="w-full max-w-md rounded-md border border-border/70 bg-muted p-6 shadow-sm">
+            <div className="flex min-w-0 w-full flex-col gap-3">
+              <div id="horaires" className="w-full scroll-mt-28 rounded-md border border-border/70 bg-muted p-6 shadow-sm">
                 <h3 className="text-lg font-semibold text-secondary">Rendez-nous visite !</h3>
                 <p className="mt-3 text-sm leading-7 text-foreground/80">
                   1 Place du Commerce, 19240 Saint-Viance
@@ -44,11 +45,14 @@ export default function Home() {
                 <p className="mt-2 text-sm leading-7 text-foreground/80">
                   Téléphone : 05 55 23 10 16
                 </p>
+                <div className="mt-5 border-t border-border/70 pt-5">
+                  <OpeningHours compact />
+                </div>
                 <Link
                   href="/contact"
                   className="mt-6 inline-flex items-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-background transition hover:opacity-90"
                 >
-                  Voir les horaires / Nous contacter
+                  Nous contacter
                 </Link>
               </div>
               <Link

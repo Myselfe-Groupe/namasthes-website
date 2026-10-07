@@ -19,7 +19,7 @@ const slides: Slide[] = [
     {
         id: 1,
         title: 'Boulangerie',
-        description: 'Lundi - Samedi : 06:30 - 21:00\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Des pains dorés et des viennoiseries gourmandes pour bien commencer la journée.',
         link: '/produits/boulangerie',
         buttonText: 'Découvrir',
         image: '/images/vitrine-contrast.jpeg',
@@ -27,7 +27,7 @@ const slides: Slide[] = [
     {
         id: 2,
         title: 'Pizzeria',
-        description: 'Lundi - Samedi : 11:30 - 14:00 / 19:00 - 21:00\nDimanche : 11:30 - 13:00 / 19:00 - 21:00',
+        description: 'Des pizzas généreuses à partager, sur place ou à emporter.',
         link: '/produits/pizzeria',
         buttonText: 'Découvrir',
         image: '/images/pizzeria.jpg',
@@ -35,7 +35,7 @@ const slides: Slide[] = [
     {
         id: 3,
         title: 'Pâtisserie',
-        description: 'Lundi - Samedi : 06:30 - 21:00\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Des créations gourmandes pour vos petites envies et vos grandes occasions.',
         link: '/produits/patisserie',
         buttonText: 'Découvrir',
         image: '/images/patisserie.jpg',
@@ -43,7 +43,7 @@ const slides: Slide[] = [
     {
         id: 4,
         title: 'Snacking',
-        description: 'Lundi - Samedi : 06:30 - 21:00\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Sandwichs frais et plats maison pour une pause déjeuner pleine de saveurs.',
         link: '/produits/snacking',
         buttonText: 'Découvrir',
         image: '/images/snacking.jpg',
@@ -51,7 +51,7 @@ const slides: Slide[] = [
     {
         id: 5,
         title: 'Chocolaterie',
-        description: 'Lundi - Samedi : 06:30 - 21:00\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Découvrez les chocolats de la Manufacture CLUIZEL, à offrir ou à savourer.',
         link: '/produits/chocolaterie',
         buttonText: 'Découvrir',
         image: '/images/chocolaterie.jpg',
@@ -59,7 +59,7 @@ const slides: Slide[] = [
     {
         id: 6,
         title: 'Salon de thé',
-        description: 'Lundi - Samedi : 06:30 - 21:00\nDimanche : 07:00 - 13:00 / 19:00 - 21:00',
+        description: 'Un thé, une douceur et un moment de détente dans un cadre chaleureux.',
         link: '/produits/salon-de-the',
         buttonText: 'Découvrir',
         image: '/images/salon-de-the.jpg',
@@ -82,8 +82,16 @@ export default function HeroSlider() {
     return (
         <section className="relative w-full overflow-hidden select-none">
             {/* Bandeau d'annonce supérieur */}
-            <div className="bg-border text-[#1E2538] text-center py-2 text-sm md:text-base font-semibold tracking-wider uppercase">
-                Restauration sur place / À emporter
+            <div className="bg-border text-[#1E2538] px-6 py-3 text-sm font-semibold">
+                <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 sm:flex-row">
+                    <span className="text-center tracking-wider uppercase">Restauration sur place / À emporter</span>
+                    <a
+                        href="/contact"
+                        className="rounded-sm underline underline-offset-4 hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                    >
+                        Dès 7h · Voir les horaires
+                    </a>
+                </div>
             </div>
 
             {/* Conteneur principal du Slider */}
@@ -124,7 +132,7 @@ export default function HeroSlider() {
                             <h1 className="text-5xl md:text-9xl font-title underline decoration-2 underline-offset-10">
                                 {currentSlide.title}
                             </h1>
-                            <p className="text-sm sm:text-base font-text whitespace-pre-line text-background leading-relaxed">
+                            <p className="max-w-xl text-sm sm:text-base font-text text-background leading-relaxed">
                                 {currentSlide.description}
                             </p>
                         </motion.div>
