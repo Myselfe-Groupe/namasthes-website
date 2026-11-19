@@ -85,6 +85,12 @@ export default function HeroSlider() {
             <div className="bg-border text-[#1E2538] px-6 py-3 text-sm font-semibold">
                 <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 sm:flex-row">
                     <span className="text-center tracking-wider uppercase">Restauration sur place / À emporter</span>
+                    <Link
+                        href="/carte-des-pizzas"
+                        className="inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-base text-background transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                    >
+                        Voir la carte des pizzas
+                    </Link>
                     <a
                         href="/contact"
                         className="rounded-sm underline underline-offset-4 hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"

@@ -1,3 +1,5 @@
+import { pizzaServiceHours } from '@/data/pizza-menu';
+
 const schedules = [
     {
         title: 'Boulangerie',
@@ -8,10 +10,7 @@ const schedules = [
     },
     {
         title: 'Pizzeria',
-        hours: [
-            { days: 'Lundi – samedi', times: '11h30 – 14h / 19h – 21h' },
-            { days: 'Dimanche', times: '11h30 – 13h / 19h – 21h' },
-        ],
+        hours: pizzaServiceHours,
     },
 ];
 

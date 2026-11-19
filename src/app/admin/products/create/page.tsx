@@ -11,6 +11,7 @@ export default function CreateProductPage() {
     const router = useRouter();
 
     const [loading, setLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
     const [name, setName] = useState("");
     const [category, setCategory] = useState("");
@@ -24,11 +25,15 @@ export default function CreateProductPage() {
         null
     );
 
-    const handleFile = (file: File) => {
+    const handleFile = (file: File | undefined) => {
+        if (!file) return;
+
         if (!file.type.startsWith("image/")) {
+            setErrorMessage("Veuillez sélectionner un fichier image.");
             return;
         }
 
+        setErrorMessage(null);
         setImage(file);
         setPreview(URL.createObjectURL(file));
     };
@@ -37,6 +42,8 @@ export default function CreateProductPage() {
         e: React.FormEvent<HTMLFormElement>
     ) {
         e.preventDefault();
+        if (loading) return;
+        setErrorMessage(null);
 
         try {
             setLoading(true);
@@ -55,7 +62,18 @@ export default function CreateProductPage() {
                         .upload(fileName, image);
 
                 if (uploadError) {
-                    throw uploadError;
+                    console.error("Échec de l’envoi de l’image du produit", {
+                        bucket: "products",
+                        statusCode: uploadError.statusCode,
+                        message: uploadError.message,
+                    });
+                    const status = uploadError.statusCode;
+                    throw new Error(
+                        `Impossible d’envoyer l’image vers Supabase Storage${status ? ` (HTTP ${status})` : ""} : ${uploadError.message}.` +
+                        (Number(status) >= 500
+                            ? " Le service de stockage a rencontré une erreur serveur. Consultez les logs Storage et Postgres du projet Supabase pour en connaître la cause."
+                            : "")
+                    );
                 }
 
                 const {
@@ -79,14 +97,16 @@ export default function CreateProductPage() {
                 });
 
             if (error) {
-                throw error;
+                throw new Error(`Impossible d’enregistrer le produit : ${error.message}`);
             }
 
             router.push("/admin/products");
             router.refresh();
         } catch (error) {
             console.error(error);
-            alert("Erreur lors de la création");
+            setErrorMessage(
+                error instanceof Error ? error.message : "Erreur lors de la création du produit."
+            );
         } finally {
             setLoading(false);
         }
@@ -181,9 +201,6 @@ export default function CreateProductPage() {
                             const file = e.dataTransfer.files?.[0];
                             handleFile(file);
 
-                            if (file && file.type.startsWith("image/")) {
-                                setImage(file);
-                            }
                         }}
                         className={`
               flex h-40 cursor-pointer items-center justify-center
@@ -205,7 +222,7 @@ export default function CreateProductPage() {
                                 if (file) {
                                     handleFile(file);
                                 }
-                                setImage(e.target.files?.[0] ?? null)
+                                e.target.value = "";
                             }}
                         />
 
@@ -329,6 +346,12 @@ export default function CreateProductPage() {
                         ))}
                     </div>
                 </div>
+
+                {errorMessage && (
+                    <p role="alert" className="rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800">
+                        {errorMessage}
+                    </p>
+                )}
 
                 <div className="flex justify-end gap-4">
                     <Button

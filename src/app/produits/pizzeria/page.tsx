@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import ProductsSection from "@/components/sections/ProductsSection";
+import { pizzaServiceHours } from "@/data/pizza-menu";
 
 export const metadata: Metadata = {
     title: "Pizzeria",
@@ -33,9 +34,9 @@ export default async function PizzeriaPage({ searchParams }: { searchParams: Pro
                     <div className="gap-3 flex flex-col">
                         <h2 className="text-2xl font-text text-secondary uppercase">Pizza midi & soir</h2>
                         <div className="flex flex-col p-2 border-accent border bg-muted rounded-sm text-sm mb-4">
-                            <p>Lun-Jeu : 11:30 - 14:00 / 19:00 - 21:00</p>
-                            <p>Ven-Sam : 11:30 - 14:00 / 19:00 - 21:30</p>
-                            <p>Dim : 11:30 - 13:00 / 19:00 - 21:00</p>
+                            {pizzaServiceHours.map(({ days, times }) => (
+                                <p key={days}>{days} : {times}</p>
+                            ))}
                             <p className="font-semibold mt-2">Commander : 05 55 23 10 16</p>
                         </div>
                         <p className="text-sm sm:text-base leading-6 text-foreground/80">

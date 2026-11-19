@@ -1,0 +1,8 @@
+Carte 320px : 17 recettes, 44 prix, texte >= 16px, aucun débordement, appel et téléchargement OK
+Carte 390px : 17 recettes, 44 prix, texte >= 16px, aucun débordement, appel et téléchargement OK
+Carte 768px : 17 recettes, 44 prix, texte >= 16px, aucun débordement, appel et téléchargement OK
+Carte 1440px : 17 recettes, 44 prix, texte >= 16px, aucun débordement, appel et téléchargement OK
+Accueil mobile : bouton visible en haut et navigation vers la carte OK
+/carte-des-pizzas : sitemap et HTTP 200 OK
+/produits/boulangerie : sitemap et HTTP 200 OK
+/produits/snacking : sitemap et HTTP 200 OK
