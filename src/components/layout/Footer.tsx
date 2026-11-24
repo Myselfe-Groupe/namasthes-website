@@ -36,7 +36,7 @@ export default function Footer() {
 								<MailIcon />
 							</span>
 							<a href="mailto:sas.namastes@gmail.com" className="hover:text-border transition-colors">
-								sas.namastes@gmail.com
+								sas.namasthes@gmail.com
 							</a>
 						</li>
 						<li className="flex items-start gap-2.5">
