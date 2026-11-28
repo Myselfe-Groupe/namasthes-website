@@ -1,5 +1,7 @@
 ﻿import { FaArrowUpRightFromSquare, FaInstagram, FaTiktok } from "react-icons/fa6";
 
+import ContentContainer from "@/components/layout/ContentContainer";
+
 const socialLinks = [
   {
     name: "Instagram",
@@ -15,8 +17,8 @@ const socialLinks = [
 
 export default function SocialSection() {
   return (
-    <section className="w-full bg-background px-6 py-16 sm:px-10 lg:px-12">
-      <div className="mx-auto max-w-6xl">
+    <section className="w-full bg-background py-16">
+      <ContentContainer>
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary sm:text-base">
             Suivez-nous !
@@ -48,7 +50,7 @@ export default function SocialSection() {
             </a>
           ))}
         </div>
-      </div>
+      </ContentContainer>
     </section>
   );
 }

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import ProductSearch from "@/components/sections/ProductSearch";
+import { contentContainerClassName } from "@/components/layout/ContentContainer";
 
 interface Product {
 	id: string;
@@ -55,8 +56,8 @@ export default async function ProductsSection({ category, page = 1, query = "" }
 	const totalPages = category ? Math.ceil((count ?? 0) / PRODUCTS_PER_PAGE) : 1;
 
 	return (
-		<section className="w-full bg-muted px-6 py-16 sm:px-10 lg:px-12">
-			<div className="mx-auto max-w-6xl">
+		<section className={category ? "w-full bg-muted px-6 py-16 sm:px-10 lg:px-12" : "w-full bg-muted py-16"}>
+			<div className={category ? "mx-auto max-w-6xl" : contentContainerClassName}>
 				<div className="mb-8 flex flex-col sm:flex-row items-start justify-between gap-4">
 					<div>
 						<p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">

@@ -1,0 +1,13 @@
+{
+  "diameter": 38,
+  "pizzas": [
+  { "name": "Margherita", "ingredients": "Tomate, mozzarella, origan", "price": 10.9 },
+  { "name": "Reine", "ingredients": "Tomate, mozzarella, jambon cuit, champignons émincés, origan", "price": 12.9 },
+  { "name": "Quatre Fromages", "ingredients": "Tomate, mozzarella, emmental, chèvre, tomme corrézienne, origan", "price": 13.9 },
+  { "name": "Chèvre-Miel", "ingredients": "Crème fraîche, mozzarella, chèvre, miel, origan", "price": 13.9 },
+  { "name": "Savoyarde", "ingredients": "Crème fraîche, mozzarella, reblochon, lardons, pommes de terre, oignons, origan", "price": 14.9 },
+  { "name": "La Maison", "ingredients": "Tomate, pommes de terre, gésiers, magret fumé", "price": 15.9 },
+  { "name": "Le Coup de cœur", "ingredients": "Tomate, pommes de terre, bœuf haché, oignons, cheddar", "price": 14.9 },
+  { "name": "Chori’love", "ingredients": "Tomate, mozzarella, chorizo, poivrons, oignons, origan", "price": 15.9 }
+  ]
+}

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ContentContainer from "@/components/layout/ContentContainer";
 
 // Structure des sous-catégories de produits
 const productCategories = [
@@ -13,9 +14,10 @@ const productCategories = [
 
 export default function MoreProducts() {
     return (
-        <div className="flex flex-col items-center justify-center gap-4 bg-muted w-full px-6 pb-16 sm:px-10 lg:pb-12">
+        <div className="w-full bg-muted pb-16 lg:pb-12">
+          <ContentContainer className="flex flex-col items-center justify-center gap-4">
             <h4>Voir plus de produits</h4>
-            <div className="grid grid-cols-2 gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid w-full grid-cols-2 gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {productCategories.map((category) => (
                     <Link
                         key={category.href}
@@ -33,6 +35,7 @@ export default function MoreProducts() {
                     </Link>
                 ))}
             </div>
+          </ContentContainer>
         </div>
     );
 }

@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { LuPhone } from "react-icons/lu";
+import styles from "./Navbar.module.css";
 
 // Structure des sous-catégories de produits
 const productCategories = [
@@ -18,6 +19,28 @@ const productCategories = [
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isProductsOpen, setIsProductsOpen] = useState(false);
+    const mobileDialogRef = useRef<HTMLDialogElement>(null);
+
+    useEffect(() => {
+        if (!isMobileMenuOpen) return;
+        const dialog = mobileDialogRef.current;
+        if (!dialog) return;
+
+        dialog.showModal();
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        const desktop = window.matchMedia("(min-width: 1024px)");
+        const closeOnDesktop = () => {
+            if (desktop.matches) dialog.close();
+        };
+        desktop.addEventListener("change", closeOnDesktop);
+
+        return () => {
+            desktop.removeEventListener("change", closeOnDesktop);
+            if (dialog.open) dialog.close();
+            document.body.style.overflow = previousOverflow;
+        };
+    }, [isMobileMenuOpen]);
 
     const handleCloseMenu = () => {
         setIsMobileMenuOpen(false);
@@ -27,39 +50,20 @@ export default function Navbar() {
     return (
         <header className="sticky top-0 z-30 bg-primary shadow-[inset_0_-1px_0_0_var(--border)] backdrop-blur-md">
             <div className="relative">
-                <nav className="z-50 mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-4 sm:px-10 lg:px-12">
-                    <div className="w-62.5 flex items-center gap-4 text-border sm:gap-6">
-                        <div className="justify-center items-center gap-8 flex" aria-label="Navigation principale">
-                            <button
-                                type="button"
-                                className="cursor-pointer inline-flex items-center justify-center rounded-full border border-border bg-primary p-2 text-background transition-colors hover:opacity-90"
-                                aria-label="Ouvrir le menu"
-                                aria-expanded={isMobileMenuOpen}
-                                onClick={() => setIsMobileMenuOpen((value) => !value)}
-                            >
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                    <path d="M4 7H20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                                    <path d="M4 12H20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                                    <path d="M4 17H20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                                </svg>
-                            </button>
-                        </div>
-                        <a href="tel:+33555231016" className="flex items-start gap-2 text-background hover:text-border transition-colors">
-                            <LuPhone className="w-5 h-5 text-border" />
-                            <span className="text-sm hidden sm:inline">05 55 23 10 16</span>
-                        </a>
-                    </div>
+                <nav aria-label="Présentation et réseaux sociaux" className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-10 lg:px-12">
+                    <p className={`${styles.announcement} min-w-0 text-xs leading-6 text-background`} tabIndex={0}>
+                        <span className={styles.announcementTrack}>
+                            {[0, 1].map((copy) => (
+                                <span key={copy} className={styles.announcementCopy} aria-hidden={copy === 1 ? true : undefined}>
+                                    À Saint-Viance, vos envies gourmandes ont une adresse
+                                    <span aria-hidden="true" className="mx-2 inline-block h-1 w-1 rounded-full bg-border align-middle" />
+                                    Boulangerie, salon de thé &amp; pizzeria
+                                </span>
+                            ))}
+                        </span>
+                    </p>
 
-                    <Link href="/" className="relative flex flex-col leading-none text-foreground items-center justify-center h-full">
-                        <Image
-                            src="/logo/logo_namasthes_stretch.png"
-                            alt="Logo de Namas'thé"
-                            width={80}
-                            height={80}
-                        />
-                    </Link>
-
-                    <div className="w-62.5 flex items-center justify-end  gap-4 text-border">
+                    <div className="flex shrink-0 items-center justify-end gap-4 text-border">
                         <a
                             href="https://www.instagram.com/namas.thes/"
                             aria-label="Instagram"
@@ -81,26 +85,125 @@ export default function Navbar() {
                     </div>
                 </nav>
 
-                {/* Tiroir de navigation */}
-                <div
-                    className={`fixed left-0 top-23.1 h-[calc(100dvh-5.75rem)] w-72 border-r border-border/60 bg-primary/95 transition-transform duration-300 ease-out sm:w-80 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-                        }`}
-                >
-                    <nav className="flex h-full flex-col gap-1 overflow-y-auto px-6 py-6" aria-label="Navigation mobile">
-                        <Link href="/" onClick={handleCloseMenu} className="relative flex flex-col leading-none text-foreground items-center justify-center mb-4">
+                {/* Bandeau solidaire de la navigation lors du défilement */}
+                <div className="bg-background border-b border-accent text-[#1E2538] py-2 text-sm">
+                    <div className="mx-auto grid w-full max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 sm:gap-x-6 sm:px-10 lg:grid-cols-[auto_1fr_auto] lg:px-12">
+                        <button
+                            type="button"
+                            className="col-start-1 row-start-1 inline-flex min-h-12 min-w-12 justify-self-start cursor-pointer items-center justify-center rounded-full border border-border bg-transparent p-3 text-primary transition-colors hover:bg-primary hover:text-background focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:hidden"
+                            aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+                            aria-controls="mobile-navigation"
+                            aria-expanded={isMobileMenuOpen}
+                            onClick={() => setIsMobileMenuOpen((value) => !value)}
+                        >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M4 7H20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                                <path d="M4 12H20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                                <path d="M4 17H20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                            </svg>
+                        </button>
+                        <Link href="/" onClick={handleCloseMenu} aria-label="Namas’Thés, accueil" className="col-start-2 row-start-1 justify-self-center p-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:col-start-1">
                             <Image
                                 src="/logo/logo_namasthes_stretch.png"
                                 alt="Logo de Namas'thé"
-                                width={160}
-                                height={160}
+                                width={80}
+                                height={64}
+                                className="h-auto w-14 object-contain sm:w-20"
                             />
                         </Link>
+                        <nav aria-label="Navigation principale" className="hidden items-center justify-end gap-10 text-sm text-primary lg:col-start-2 lg:row-start-1 lg:flex">
+                            <Link href="/" className="py-3 hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-primary">Accueil</Link>
+                            <details
+                                className="relative"
+                                onPointerEnter={(event) => {
+                                    if (event.pointerType === "mouse") event.currentTarget.open = true;
+                                }}
+                                onPointerLeave={(event) => {
+                                    if (event.pointerType === "mouse" && !event.currentTarget.contains(document.activeElement)) {
+                                        event.currentTarget.open = false;
+                                    }
+                                }}
+                                onBlur={(event) => {
+                                    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                                        event.currentTarget.open = false;
+                                    }
+                                }}
+                                onKeyDown={(event) => {
+                                    if (event.key === "Escape") {
+                                        event.preventDefault();
+                                        event.currentTarget.open = false;
+                                        event.currentTarget.querySelector("summary")?.focus();
+                                    }
+                                }}
+                            >
+                                <summary className="cursor-pointer py-3 hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-primary">Nos produits</summary>
+                                <div className="absolute left-0 top-full z-50 flex w-56 flex-col rounded-lg border border-border/60 bg-primary p-2 text-background shadow-xl">
+                                    {productCategories.map((category) => (
+                                        <Link
+                                            key={category.href}
+                                            href={category.href}
+                                            onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")}
+                                            className="rounded-md px-3 py-3 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-border"
+                                        >
+                                            {category.label}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </details>
+                            <Link href="/carte-des-pizzas" className="py-3 hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-primary">Carte des pizzas</Link>
+                            <Link href="/contact" className="py-3 hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-primary">Horaires et accès</Link>
+                        </nav>
+                        <a
+                            href="tel:+33555231016"
+                            aria-label="Appeler le 05 55 23 10 16"
+                            className="col-start-3 row-start-1 inline-flex min-h-12 min-w-12 items-center justify-center justify-self-end gap-2 whitespace-nowrap rounded-full border border-border bg-transparent px-3 py-3 text-primary transition-colors hover:bg-primary hover:text-background focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:px-5"
+                        >
+                            <LuPhone className="h-5 w-5" aria-hidden="true" />
+                            <span className="hidden sm:inline">05 55 23 10 16</span>
+                        </a>
+                    </div>
+                </div>
+
+                {/* Panneau mobile superposé à la page et au bouton du menu */}
+                <dialog
+                    ref={mobileDialogRef}
+                    id="mobile-navigation"
+                    aria-labelledby="mobile-menu-title"
+                    onClose={handleCloseMenu}
+                    onCancel={handleCloseMenu}
+                    onClick={(event) => {
+                        if (event.target !== event.currentTarget) return;
+                        const bounds = event.currentTarget.getBoundingClientRect();
+                        if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) {
+                            handleCloseMenu();
+                        }
+                    }}
+                    className={`${styles.mobileMenu} fixed inset-y-0 left-0 m-0 h-dvh max-h-none w-[min(90vw,24rem)] max-w-none overflow-y-auto border-0 bg-background p-0 text-primary shadow-2xl backdrop:bg-black/45 backdrop:backdrop-blur-sm`}
+                >
+                    <div className="sticky top-0 z-10 flex items-center justify-between border-b border-accent bg-background px-6 py-4">
+                        <Link href="/" onClick={handleCloseMenu} aria-label="Namas’Thés, accueil" className="rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+                            <Image
+                                src="/logo/logo_namasthes_stretch.png"
+                                alt="Logo de Namas'thé"
+                                width={80}
+                                height={64}
+                                className="h-auto w-20 object-contain"
+                            />
+                        </Link>
+                        <h2 id="mobile-menu-title" className="sr-only">Menu de navigation</h2>
+                        <button type="button" onClick={handleCloseMenu} aria-label="Fermer le menu" className="inline-flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-primary/25 text-primary transition-colors hover:bg-primary hover:text-background focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="m6 6 12 12M18 6 6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                            </svg>
+                        </button>
+                    </div>
+                    <nav className="flex flex-col gap-2 px-6 py-6 [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-offset-2 [&_a:focus-visible]:outline-primary [&_button:focus-visible]:outline-2 [&_button:focus-visible]:outline-offset-2 [&_button:focus-visible]:outline-primary" aria-label="Navigation mobile">
 
                         {/* Lien Accueil */}
                         <Link
                             href="/"
                             onClick={handleCloseMenu}
-                            className="rounded-xl px-3 py-3 text-sm text-center font-medium text-background transition-colors hover:bg-white/5"
+                            className="rounded-xl px-4 py-4 text-base font-medium text-primary transition-colors hover:bg-muted"
                         >
                             Accueil
                         </Link>
@@ -108,7 +211,7 @@ export default function Navbar() {
                         <Link
                             href="/carte-des-pizzas"
                             onClick={handleCloseMenu}
-                            className="rounded-xl px-3 py-3 text-sm text-center font-medium text-background transition-colors hover:bg-white/5"
+                            className="rounded-xl px-4 py-4 text-base font-medium text-primary transition-colors hover:bg-muted"
                         >
                             Carte des pizzas
                         </Link>
@@ -117,10 +220,12 @@ export default function Navbar() {
                         <div className="flex flex-col">
                             <button
                                 type="button"
+                                aria-expanded={isProductsOpen}
+                                aria-controls="mobile-product-categories"
                                 onClick={() => setIsProductsOpen((prev) => !prev)}
-                                className="cursor-pointer flex items-center justify-between rounded-xl px-3 py-3 text-sm font-medium text-background transition-colors hover:bg-white/5"
+                                className="cursor-pointer flex items-center justify-between rounded-xl px-4 py-4 text-base font-medium text-primary transition-colors hover:bg-muted"
                             >
-                                <span className="flex-1 text-center pl-4">Nos produits</span>
+                                <span>Nos produits</span>
                                 <svg
                                     width="16"
                                     height="16"
@@ -134,13 +239,13 @@ export default function Navbar() {
 
                             {/* Sous-menu des catégories */}
                             {isProductsOpen && (
-                                <div className="ml-4 my-1 flex flex-col gap-1 border-l border-white/20 pl-3">
+                                <div id="mobile-product-categories" className="ml-4 my-2 flex flex-col gap-1 border-l border-border pl-3">
                                     {productCategories.map((cat) => (
                                         <Link
                                             key={cat.label}
                                             href={cat.href}
                                             onClick={handleCloseMenu}
-                                            className="rounded-lg px-3 py-2 text-xs text-background/80 transition-colors hover:bg-white/5 hover:text-background"
+                                            className="flex min-h-12 items-center rounded-lg px-3 py-3 text-base text-secondary transition-colors hover:bg-muted hover:text-primary"
                                         >
                                             {cat.label}
                                         </Link>
@@ -153,12 +258,12 @@ export default function Navbar() {
                         <Link
                             href="/contact"
                             onClick={handleCloseMenu}
-                            className="rounded-xl px-3 py-3 text-sm text-center font-medium text-background transition-colors hover:bg-white/5"
+                            className="rounded-xl px-4 py-4 text-base font-medium text-primary transition-colors hover:bg-muted"
                         >
-                            Contact
+                            Horaires et accès
                         </Link>
                     </nav>
-                </div>
+                </dialog>
             </div>
         </header>
     );

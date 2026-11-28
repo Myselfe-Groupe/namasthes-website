@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "menu:export": "node scripts/export-pizza-menu.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

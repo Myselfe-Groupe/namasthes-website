@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
+import ContentContainer from "@/components/layout/ContentContainer";
 
 interface Partenaire {
     id: string;
@@ -19,8 +20,8 @@ export default async function PartnersSection() {
 
 
     return (
-        <section className="w-full bg-muted px-6 py-16 sm:px-10 lg:px-12">
-            <div className="mx-auto max-w-6xl">
+        <section className="w-full bg-muted py-16">
+            <ContentContainer>
                 <div className="mb-8 flex flex-col items-end justify-end gap-4">
                     <div className="items-end flex flex-col">
                         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
@@ -62,7 +63,7 @@ export default async function PartnersSection() {
                         </div>
                     ))}
                 </div>
-            </div>
+            </ContentContainer>
         </section>
     );
 }

@@ -1,17 +1,15 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import Button from '@/components/ui/Button';
 
 interface Slide {
     id: number;
     title: string;
     description: string;
     link: string;
-    buttonText: string;
     image: string;
 }
 
@@ -21,7 +19,6 @@ const slides: Slide[] = [
         title: 'Boulangerie',
         description: 'Des pains dorés et des viennoiseries gourmandes pour bien commencer la journée.',
         link: '/produits/boulangerie',
-        buttonText: 'Découvrir',
         image: '/images/vitrine-contrast.jpeg',
     },
     {
@@ -29,7 +26,6 @@ const slides: Slide[] = [
         title: 'Pizzeria',
         description: 'Des pizzas généreuses à partager, sur place ou à emporter.',
         link: '/produits/pizzeria',
-        buttonText: 'Découvrir',
         image: '/images/pizzeria.jpg',
     },
     {
@@ -37,7 +33,6 @@ const slides: Slide[] = [
         title: 'Pâtisserie',
         description: 'Des créations gourmandes pour vos petites envies et vos grandes occasions.',
         link: '/produits/patisserie',
-        buttonText: 'Découvrir',
         image: '/images/patisserie.jpg',
     },
     {
@@ -45,7 +40,6 @@ const slides: Slide[] = [
         title: 'Snacking',
         description: 'Sandwichs frais et plats maison pour une pause déjeuner pleine de saveurs.',
         link: '/produits/snacking',
-        buttonText: 'Découvrir',
         image: '/images/snacking.jpg',
     },
     {
@@ -53,7 +47,6 @@ const slides: Slide[] = [
         title: 'Chocolaterie',
         description: 'Découvrez les chocolats de la Manufacture CLUIZEL, à offrir ou à savourer.',
         link: '/produits/chocolaterie',
-        buttonText: 'Découvrir',
         image: '/images/chocolaterie.jpg',
     },
     {
@@ -61,7 +54,6 @@ const slides: Slide[] = [
         title: 'Salon de thé',
         description: 'Un thé, une douceur et un moment de détente dans un cadre chaleureux.',
         link: '/produits/salon-de-the',
-        buttonText: 'Découvrir',
         image: '/images/salon-de-the.jpg',
     },
 ];
@@ -81,25 +73,6 @@ export default function HeroSlider() {
 
     return (
         <section className="relative w-full overflow-hidden select-none">
-            {/* Bandeau d'annonce supérieur */}
-            <div className="bg-border text-[#1E2538] px-6 py-3 text-sm font-semibold">
-                <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 sm:flex-row">
-                    <span className="text-center tracking-wider uppercase">Restauration sur place / À emporter</span>
-                    <Link
-                        href="/carte-des-pizzas"
-                        className="inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-5 py-3 text-center text-base text-background transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-                    >
-                        Voir la carte des pizzas
-                    </Link>
-                    <a
-                        href="/contact"
-                        className="rounded-sm underline underline-offset-4 hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-                    >
-                        Dès 7h · Voir les horaires
-                    </a>
-                </div>
-            </div>
-
             {/* Conteneur principal du Slider */}
             <div className="relative h-137.5 md:h-162.5 w-full">
                 <AnimatePresence mode="wait">
@@ -116,6 +89,7 @@ export default function HeroSlider() {
                             src={currentSlide.image}
                             alt={currentSlide.title}
                             fill
+                            sizes="(min-width: 1024px) 50vw, 100vw"
                             priority
                             className="object-cover object-center"
                         />
@@ -124,49 +98,37 @@ export default function HeroSlider() {
                     </motion.div>
                 </AnimatePresence>
 
-                {/* Contenu superposé (Titre, Description, Bouton) */}
-                <div className="relative z-10 max-w-7xl mx-auto h-full px-6 md:px-12 flex flex-col justify-end pb-16 md:pb-40">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-6">
+                {/* Lien sur toute la slide, avec les commandes au-dessus */}
+                <div className="relative z-10 max-w-7xl mx-auto h-full px-6 md:px-12 flex flex-col justify-end py-16">
+                    <Link
+                        href={currentSlide.link}
+                        aria-label={`Découvrir : ${currentSlide.title}`}
+                        className="absolute inset-0 z-10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-border"
+                    />
+                    <div className="mb-6 flex flex-col items-start justify-between gap-6">
                         {/* Texte à gauche */}
                         <motion.div
                             key={`text-${currentSlide.id}`}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-white space-y-3 mb-6 md:mb-0"
+                            className="min-w-0 space-y-3 text-white"
                         >
-                            <h1 className="text-5xl md:text-9xl font-title underline decoration-2 underline-offset-10">
+                            <h2 className="text-5xl sm:text-6xl xl:text-7xl font-title underline decoration-2 underline-offset-10">
                                 {currentSlide.title}
-                            </h1>
+                            </h2>
                             <p className="max-w-xl text-sm sm:text-base font-text text-background leading-relaxed">
                                 {currentSlide.description}
                             </p>
                         </motion.div>
 
-                        {/* Bouton d'action à droite */}
-                        <motion.div
-                            key={`btn-${currentSlide.id}`}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                            className="flex justify-center md:justify-end"
-                        >
-                            <Link
-                                href={currentSlide.link}
-                                className="inline-flex items-center w-full"
-                            >
-                                <Button variant="primary" size="lg" className="w-full md:w-auto">   
-                                    <span>{currentSlide.buttonText}</span>
-                                    <span className="text-lg ml-2">→</span>
-                                </Button>
-                            </Link>
-                        </motion.div>
                     </div>
 
                     {/* Indicators / Dots au centre bas */}
-                    <div className="absolute sm:bottom-28 left-1/2 -translate-x-1/2 flex items-center gap-2.5">
+                    <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 flex items-center gap-2.5">
                         {slides.map((_, index) => (
                             <button
+                                type="button"
                                 key={index}
                                 onClick={() => setCurrentIndex(index)}
                                 aria-label={`Aller à la slide ${index + 1}`}
